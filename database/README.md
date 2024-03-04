@@ -4,7 +4,7 @@ Neste diretório está o esquemático de banco de dados utilizado nos testes e e
 
 Temos as seguintes entidades:
 
-![DiagramaER](er-diagram.png)
+[!DiagramaER](er-diagram.png)
 
 # Docker
 
