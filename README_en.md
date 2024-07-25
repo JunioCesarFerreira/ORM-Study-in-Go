@@ -6,12 +6,19 @@
 This project explores different methods of data access in a PostgreSQL database using Go. Three different approaches were implemented and tested for reading data: a single SQL query, multiple manually managed CRUD queries, and the GORM ORM.
 
 ## Test Environment
+
+To make it easier to prepare the environment, we used PostgreSQL in a Docker container. While the go project was organized with each test in the `tests` directory. The details of these parts are detailed in the files:
+- [README go](./go-projects/README_en.md)
+- [README db](./database/README_en.md)
+
+## Benchmark Results
+
+The environment used in the tests has the following characteristics:
+
 - **Operating System**: Windows
 - **CPU Architecture**: AMD64
 - **CPU**: Intel(R) Core(TM) i7-10510U @ 1.80GHz
 - **Database**: PostgreSQL
-
-## Benchmark Results
 
 ### 1. Reading with Single SQL Query
 ```
