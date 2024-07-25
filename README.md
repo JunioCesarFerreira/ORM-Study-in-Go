@@ -1,5 +1,7 @@
 # Estudo comparativo de desenpenho de acesso a banco de dados em Golang
 
+🌍 *[Português](README.md) ∙ [English](README_en.md)*
+
 ## Descrição
 Este projeto explora diferentes métodos de acesso a dados em um banco de dados PostgreSQL usando Go. Foram implementados e testados três abordagens diferentes para ler dados: uma consulta SQL única, múltiplas consultas CRUD gerenciadas manualmente e o ORM GORM.
 
@@ -40,3 +42,11 @@ Execuções:
 
 ## Conclusão
 Os benchmarks revelam diferenças significativas no desempenho e no uso de recursos entre as três abordagens testadas. A leitura com consulta SQL única se mostrou a mais eficiente em termos de tempo de execução e alocação de memória. A abordagem CRUD manual, embora mais lenta, manteve um uso moderado de memória. Por fim, a abordagem com GORM, apesar de ser a mais prática em termos de desenvolvimento, resultou em maior tempo de execução e maior uso de recursos.
+
+## Contribuições
+
+Contribuições, correções e sujestões são bem-vindas.
+
+## Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE).

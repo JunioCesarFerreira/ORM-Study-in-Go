@@ -1,5 +1,7 @@
 # Database Schema
 
+🌍 *[Português](README.md) ∙ [English](README_en.md)*
+
 Neste diretório está o esquemático de banco de dados utilizado nos testes e exeperimentos.
 
 Temos as seguintes entidades:
