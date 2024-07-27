@@ -1,4 +1,4 @@
-# Estudo comparativo de desenpenho de acesso a banco de dados em Golang
+# Estudo comparativo de desempenho de acesso a banco de dados em Golang
 
 🌍 *[Português](README.md) ∙ [English](README_en.md)*
 
