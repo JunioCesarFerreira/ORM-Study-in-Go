@@ -2,13 +2,13 @@
 
 🌍 *[Português](README.md) ∙ [English](README_en.md)*
 
-Neste diretório está o esquemático de banco de dados utilizado nos testes e exeperimentos.
+Neste diretório está o esquemático de banco de dados utilizado nos testes e experimentos.
 
 Temos as seguintes entidades:
 
 ![DiagramaER](er-diagram.png)
 
-O principal objetivo deste modelo é textar diferentes tipos de dados e relacionamentos `1-N` e `N-N`.
+O principal objetivo deste modelo é testar diferentes tipos de dados e relacionamentos `1-N` e `N-N`.
 
 Veja o script de criação das tabelas [schema](schema.sql).
 

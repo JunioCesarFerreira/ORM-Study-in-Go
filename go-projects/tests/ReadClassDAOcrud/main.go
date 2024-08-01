@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"m/tests"
-	"m/tests/ReadClassWithCrud/database"
-	"m/tests/ReadClassWithCrud/entities"
+	"m/tests/ReadClassDAOcrud/database"
+	"m/tests/ReadClassDAOcrud/entities"
 
 	_ "github.com/lib/pq"
 )
@@ -81,5 +81,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	tests.SaveResult("WithCrud.json", class)
+	tests.SaveResult("DAOcrud.json", class)
 }
