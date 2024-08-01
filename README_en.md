@@ -3,7 +3,7 @@
 🌍 *[Português](README.md) ∙ [English](README_en.md)*
 
 ## Description
-This project explores different methods of data access in a PostgreSQL database using Go. Three different approaches were implemented and tested for reading data: a single SQL query, multiple manually managed CRUD queries, and the GORM ORM.
+This project explores different methods of data access in a PostgreSQL database using Go. Three different approaches were implemented and tested for reading data: a single SQL query, reflection DAO CRUD queries, and the GORM ORM.
 
 ## Test Environment
 
@@ -29,7 +29,7 @@ Runs:
 - 465 runs: 2960930 ns/op, 19291 B/op, 920 allocs/op
 ```
 
-### 2. Reading with Manual CRUD
+### 2. Reading DAO CRUD
 ```
 Package: m/tests/ReadClassWithCrud
 Runs:
