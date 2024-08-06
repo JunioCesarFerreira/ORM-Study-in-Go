@@ -18,18 +18,17 @@ Para executar os testes, é necessário estar no diretório `projects-go` do pro
 
 Teste com gorm:
 ```bash
-go run tests/ReadClassWithGorm/main.go
+go run tests/ClassWithGorm/main.go
 ```
 
 Teste com consulta única:
 ```bash
-cd tests/ClassOneQuery
-go test -benchmem -run=^_test$ -bench . ./...
+go run tests/ClassOneQuery/main.go
 ```
 
 Teste com métodos genéricos (crud) de execução de queries:
 ```bash
-go run tests/ReadClassWithCrud/main.go
+go run tests/ClassDAOcrud/main.go
 ```
 
 ### Executando os benchmarks
@@ -37,11 +36,13 @@ go run tests/ReadClassWithCrud/main.go
 Para executar os testes com benchmark utilize a execução de testes do VS Code ou execute os seguintes comandos.
 
 ```bash
-go test -benchmem -run=^$ -bench ^BenchmarkReadClass$ m/tests/ReadClassWithGorm
+cd tests/ClassWithGorm
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-go test -benchmem -run=^$ -bench ^BenchmarkReadClass$ m/tests/ReadClassOneQuery
+cd tests/ClassOneQuery
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash

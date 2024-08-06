@@ -19,7 +19,11 @@ O ambiente utilizado nos testes tem as seguintes características:
 - **CPU**: Intel(R) Core(TM) i7-10510U @ 1.80GHz
 - **Banco de Dados**: PostgreSQL
 
-### 1. Leitura com Consulta SQL Única
+---
+
+### Testes Iniciais apenas de Leitura
+
+#### 1. Leitura com Consulta SQL Única
 ```
 Pacote: m/tests/ReadClassOneQuery
 Execuções: 
@@ -28,7 +32,7 @@ Execuções:
 - 465 execuções: 2960930 ns/op, 19291 B/op, 920 allocs/op
 ```
 
-### 2. Leitura com CRUD DAO com reflexão
+#### 2. Leitura com CRUD DAO com reflexão
 ```
 Pacote: m/tests/ReadClassWithCrud
 Execuções:
@@ -37,7 +41,7 @@ Execuções:
 - 58 execuções: 18148195 ns/op, 31874 B/op, 817 allocs/op
 ```
 
-### 3. Leitura com GORM
+#### 3. Leitura com GORM
 ```
 Pacote: m/tests/ReadClassWithGorm
 Execuções:
@@ -46,8 +50,16 @@ Execuções:
 - 242 execuções: 4249418 ns/op, 74619 B/op, 1480 allocs/op
 ```
 
+---
+
+### Testes com CRUD
+
+---
+
 ## Conclusão
-Os benchmarks revelam diferenças significativas no desempenho e no uso de recursos entre as três abordagens testadas. A leitura com consulta SQL única se mostrou a mais eficiente em termos de tempo de execução e alocação de memória. A abordagem CRUD manual, embora mais lenta, manteve um uso moderado de memória. Por fim, a abordagem com GORM, apesar de ser a mais prática em termos de desenvolvimento, resultou em maior tempo de execução e maior uso de recursos.
+Os benchmarks revelam diferenças significativas no desempenho e no uso de recursos entre as três abordagens testadas. A leitura com consulta SQL única se mostrou a mais eficiente em termos de tempo de execução e alocação de memória. A abordagem DAO manual, embora mais lenta, manteve um uso moderado de memória. Por fim, a abordagem com GORM, apesar de ser a mais prática em termos de desenvolvimento, resultou em maior tempo de execução e maior uso de recursos.
+
+---
 
 ## Contribuições
 

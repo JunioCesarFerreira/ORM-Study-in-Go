@@ -20,7 +20,11 @@ The environment used in the tests has the following characteristics:
 - **CPU**: Intel(R) Core(TM) i7-10510U @ 1.80GHz
 - **Database**: PostgreSQL
 
-### 1. Reading with Single SQL Query
+---
+
+### Initial Read-Only Tests
+
+#### 1. Reading with Single SQL Query
 ```
 Package: m/tests/ReadClassOneQuery
 Runs: 
@@ -29,7 +33,7 @@ Runs:
 - 465 runs: 2960930 ns/op, 19291 B/op, 920 allocs/op
 ```
 
-### 2. Reading DAO CRUD
+#### 2. Reading DAO CRUD
 ```
 Package: m/tests/ReadClassWithCrud
 Runs:
@@ -38,7 +42,7 @@ Runs:
 - 58 runs: 18148195 ns/op, 31874 B/op, 817 allocs/op
 ```
 
-### 3. Reading with GORM
+#### 3. Reading with GORM
 ```
 Package: m/tests/ReadClassWithGorm
 Runs:
@@ -47,8 +51,16 @@ Runs:
 - 242 runs: 4249418 ns/op, 74619 B/op, 1480 allocs/op
 ```
 
+---
+
+### Testing with CRUD
+
+---
+
 ## Conclusion
-The benchmarks reveal significant differences in performance and resource usage among the three tested approaches. The single SQL query reading proved to be the most efficient in terms of execution time and memory allocation. The manual CRUD approach, although slower, maintained moderate memory usage. Finally, the GORM approach, despite being the most convenient in terms of development, resulted in higher execution time and greater resource usage.
+The benchmarks reveal significant differences in performance and resource usage among the three tested approaches. The single SQL query reading proved to be the most efficient in terms of execution time and memory allocation. The manual DAO approach, although slower, maintained moderate memory usage. Finally, the GORM approach, despite being the most convenient in terms of development, resulted in higher execution time and greater resource usage.
+
+---
 
 ## Contributions
 

@@ -32,26 +32,6 @@ func InsertClass(db *sql.DB, name string) (int, error) {
 	return classID, nil
 }
 
-func UpdateClass(db *sql.DB, classID int, newName string) error {
-	tx, err := db.Begin()
-	if err != nil {
-		return err
-	}
-
-	query := `
-		UPDATE CLASSES
-		SET NAME = $1
-		WHERE ID = $2
-	`
-	_, err = tx.Exec(query, newName, classID)
-	if err != nil {
-		tx.Rollback()
-		return err
-	}
-
-	return tx.Commit()
-}
-
 func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 	query := `
 	SELECT 
@@ -120,6 +100,26 @@ func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 	}
 
 	return class, nil
+}
+
+func UpdateClass(db *sql.DB, classID int, newName string) error {
+	tx, err := db.Begin()
+	if err != nil {
+		return err
+	}
+
+	query := `
+		UPDATE CLASSES
+		SET NAME = $1
+		WHERE ID = $2
+	`
+	_, err = tx.Exec(query, newName, classID)
+	if err != nil {
+		tx.Rollback()
+		return err
+	}
+
+	return tx.Commit()
 }
 
 func DeleteClass(db *sql.DB, classID int) error {

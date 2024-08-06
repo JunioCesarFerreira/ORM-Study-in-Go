@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"m/tests"
-	"m/tests/ReadClassDAOcrud/database"
-	"m/tests/ReadClassDAOcrud/entities"
+	"m/tests/ClassDAOcrud/database"
+	"m/tests/ClassDAOcrud/entities"
 
 	_ "github.com/lib/pq"
 )

@@ -18,7 +18,7 @@ To run the tests, you need to be in the project's `projects-go` directory. Below
 
 Test with GORM:
 ```bash
-go run tests/ReadClassWithGorm/main.go
+go run tests/ClassWithGorm/main.go
 ```
 
 Test with single query:
@@ -29,7 +29,7 @@ go test -benchmem -run=^_test$ -bench . ./...
 
 Test with generic (CRUD) query execution methods:
 ```bash
-go run tests/ReadClassWithCrud/main.go
+go run tests/ClassDAOcrud/main.go
 ```
 
 ### Running the benchmarks
@@ -37,13 +37,16 @@ go run tests/ReadClassWithCrud/main.go
 To run the benchmark tests, use the test execution feature of VS Code or execute the following commands.
 
 ```bash
-go test -benchmem -run=^$ -bench ^BenchmarkReadClass$ m/tests/ReadClassWithGorm
+cd tests/ClassWithGorm
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-go test -benchmem -run=^$ -bench ^BenchmarkReadClass$ m/tests/ReadClassOneQuery
+cd tests/ClassOneQuery
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-go test -benchmem -run=^$ -bench ^BenchmarkReadClass$ m/tests/ReadClassWithCrud
+cd tests/ClassDAOcrud
+go test -benchmem -run=^_test$ -bench . ./...
 ```
