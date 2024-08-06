@@ -1,31 +1,74 @@
-package main
+package repository
 
 import (
 	"database/sql"
-	"fmt"
-	"log"
-	"m/tests"
-	"m/tests/ReadClassOneQuery/entities"
+	"m/tests/ClassOneQuery/entities"
 	"time"
-
-	_ "github.com/lib/pq"
 )
 
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "my_user"
-	password = "my@Pass%1234"
-	dbname   = "my_database"
-)
+func InsertClass(db *sql.DB, name string) (int, error) {
+	tx, err := db.Begin()
+	if err != nil {
+		return 0, err
+	}
+
+	query := `
+		INSERT INTO CLASSES (NAME)
+		VALUES ($1)
+		RETURNING ID
+	`
+	var classID int
+	err = tx.QueryRow(query, name).Scan(&classID)
+	if err != nil {
+		tx.Rollback()
+		return 0, err
+	}
+
+	err = tx.Commit()
+	if err != nil {
+		return 0, err
+	}
+
+	return classID, nil
+}
+
+func UpdateClass(db *sql.DB, classID int, newName string) error {
+	tx, err := db.Begin()
+	if err != nil {
+		return err
+	}
+
+	query := `
+		UPDATE CLASSES
+		SET NAME = $1
+		WHERE ID = $2
+	`
+	_, err = tx.Exec(query, newName, classID)
+	if err != nil {
+		tx.Rollback()
+		return err
+	}
+
+	return tx.Commit()
+}
 
 func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 	query := `
-	SELECT c.ID, c.NAME, o.ID, o.NAME, o.DATETIME, o.VALUE, i.ID, i.NAME, i.DATETIME, i.VALUE
+	SELECT 
+		c.ID, 
+		c.NAME, 
+		o.ID, 
+		o.NAME, 
+		o.DATETIME, 
+		o.VALUE, 
+		i.ID, 
+		i.NAME, 
+		i.DATETIME, 
+		i.VALUE
 	FROM CLASSES c
-	INNER JOIN OBJECTS o ON c.ID = o.CLASS_ID
-	INNER JOIN OBJECT_ITEM_LINK l ON o.ID = l.OBJECT_ID
-	INNER JOIN ITEMS i ON i.ID = l.ITEM_ID
+		INNER JOIN OBJECTS o ON c.ID = o.CLASS_ID
+		INNER JOIN OBJECT_ITEM_LINK l ON o.ID = l.OBJECT_ID
+		INNER JOIN ITEMS i ON i.ID = l.ITEM_ID
 	WHERE c.ID = $1
 	`
 
@@ -79,27 +122,21 @@ func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 	return class, nil
 }
 
-func main() {
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
-
-	db, err := sql.Open("postgres", psqlInfo)
+func DeleteClass(db *sql.DB, classID int) error {
+	tx, err := db.Begin()
 	if err != nil {
-		log.Fatal(err)
-	}
-	defer db.Close()
-
-	err = db.Ping()
-	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
-	fmt.Println("Successfully connected to the database.")
-
-	classID := 1 // O ID da classe que queremos buscar
-	class, err := ReadClass(db, classID)
+	query := `
+		DELETE FROM CLASSES
+		WHERE ID = $1
+	`
+	_, err = tx.Exec(query, classID)
 	if err != nil {
-		log.Fatal(err)
+		tx.Rollback()
+		return err
 	}
 
-	tests.SaveResult("OneQuery.json", class)
+	return tx.Commit()
 }

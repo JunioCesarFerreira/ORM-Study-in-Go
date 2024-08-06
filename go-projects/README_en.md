@@ -2,7 +2,7 @@
 
 🌍 *[Português](README.md) ∙ [English](README_en.md)*
 
-This directory contains subdirectories and files related to tests conducted to evaluate different approaches to data access in Go, using a PostgreSQL database. The tests include direct SQL queries, the use of the GORM ORM, and a generic CRUD approach.
+This directory contains subdirectories and files related to tests conducted to evaluate different approaches to data access in Go, using a PostgreSQL database. The tests include direct SQL queries, the use of the GORM ORM, and a generic CRUD DAO approach.
 
 ## Test Results
 
@@ -23,7 +23,8 @@ go run tests/ReadClassWithGorm/main.go
 
 Test with single query:
 ```bash
-go run tests/ReadClassOneQuery/main.go
+cd tests/ClassOneQuery
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 Test with generic (CRUD) query execution methods:
