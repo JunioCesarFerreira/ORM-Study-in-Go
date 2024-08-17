@@ -1,6 +1,6 @@
 # Comparative Study of Database Access Performance in Golang
 
-🌍 *[Português](README.md) ∙ [English](README_en.md)*
+🌍 *[Português](README.md) ∙ [**English**](README_en.md)*
 
 ## Description
 This project explores different methods of data access in a PostgreSQL database using Go. Three different approaches were implemented and tested for reading data: a single SQL query, reflection DAO CRUD queries, and the GORM ORM.
