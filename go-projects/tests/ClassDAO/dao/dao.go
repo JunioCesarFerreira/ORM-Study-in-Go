@@ -1,4 +1,4 @@
-package database
+package dao
 
 import (
 	"database/sql"
@@ -7,16 +7,16 @@ import (
 	"strings"
 )
 
-type Database struct {
+type DAO struct {
 	Db *sql.DB
 }
 
-func NewDatabase(db *sql.DB) Database {
-	return Database{Db: db}
+func NewDatabase(db *sql.DB) DAO {
+	return DAO{Db: db}
 }
 
 // Create realiza insert considerando ID serial via banco de dados.
-func (d Database) Create(tableName string, entity interface{}) error {
+func (d DAO) Create(tableName string, entity interface{}) (int, error) {
 	// Usar reflexão para iterar sobre os campos da entidade
 	val := reflect.ValueOf(entity).Elem()
 	typeOfT := val.Type()
@@ -46,7 +46,7 @@ func (d Database) Create(tableName string, entity interface{}) error {
 	var newID int
 	err := d.Db.QueryRow(query, fieldValues...).Scan(&newID)
 	if err != nil {
-		return err
+		return -1, err
 	}
 
 	if idField := val.FieldByName("ID"); idField.IsValid() && idField.CanSet() {
@@ -54,11 +54,11 @@ func (d Database) Create(tableName string, entity interface{}) error {
 	}
 
 	fmt.Printf("New entity created with ID %d\n", newID)
-	return nil
+	return newID, nil
 }
 
 // Read busca uma entidade pelo ID e preenche a struct passada com os dados encontrados.
-func (d Database) Read(tableName string, id interface{}, entity interface{}) error {
+func (d DAO) Read(tableName string, id interface{}, entity interface{}) error {
 	val := reflect.ValueOf(entity).Elem()
 	typeOfEntity := val.Type()
 
@@ -93,7 +93,7 @@ func (d Database) Read(tableName string, id interface{}, entity interface{}) err
 }
 
 // Update atualiza qualquer struct no banco de dados.
-func (d Database) Update(tableName string, entity interface{}) error {
+func (d DAO) Update(tableName string, entity interface{}) error {
 	val := reflect.ValueOf(entity).Elem()
 	typeOfEntity := val.Type()
 
@@ -144,7 +144,7 @@ func (d Database) Update(tableName string, entity interface{}) error {
 }
 
 // Delete remove uma entidade pelo ID da tabela especificada.
-func (d Database) Delete(tableName string, id interface{}) error {
+func (d DAO) Delete(tableName string, id interface{}) error {
 	// Construir a string de query SQL
 	query := fmt.Sprintf("DELETE FROM %s WHERE id = $1", tableName)
 
@@ -170,7 +170,7 @@ func (d Database) Delete(tableName string, id interface{}) error {
 
 // ReadMultiple busca múltiplas entidades com base em uma condição SQL e argumentos.
 // A função aceita uma struct vazia como modelo para os resultados.
-func (d Database) ReadMultiple(tableName string, condition string, args []interface{}, model interface{}) ([]interface{}, error) {
+func (d DAO) ReadMultiple(tableName string, condition string, args []interface{}, model interface{}) ([]interface{}, error) {
 	sliceType := reflect.SliceOf(reflect.TypeOf(model))
 	resultsSlice := reflect.MakeSlice(sliceType, 0, 0)
 
