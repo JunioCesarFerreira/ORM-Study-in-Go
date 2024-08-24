@@ -1,8 +1,8 @@
 # Testes em Go
 
-🌍 *[Português](README.md) ∙ [English](README_en.md)*
+🌍 *[**Português**](README.md) ∙ [English](README_en.md)*
 
-Este diretório contém os subdiretórios e arquivos relacionados aos testes realizados para avaliar diferentes abordagens de acesso a dados em Go, utilizando um banco de dados PostgreSQL. Os testes incluem o uso direto de consultas SQL, o uso do ORM GORM e uma abordagem DAO CRUD genérica.
+Este diretório contém os subdiretórios e arquivos relacionados aos testes realizados para avaliar diferentes abordagens de acesso a dados em Go, utilizando um banco de dados PostgreSQL. Os testes incluem o uso direto de consultas SQL, o uso do ORM GORM e uma abordagem DAO genérica.
 
 ## Resultados dos Testes
 
@@ -26,9 +26,9 @@ Teste com consulta única:
 go run tests/ClassOneQuery/main.go
 ```
 
-Teste com métodos genéricos (crud) de execução de queries:
+Teste com métodos DAO de execução de queries:
 ```bash
-go run tests/ClassDAOcrud/main.go
+go run tests/ClassDAO/main.go
 ```
 
 ### Executando os benchmarks
@@ -46,5 +46,6 @@ go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-go test -benchmem -run=^$ -bench ^BenchmarkReadClass$ m/tests/ReadClassWithCrud
+cd tests/ClassDAO
+go test -benchmem -run=^_test$ -bench . ./...
 ```
