@@ -7,24 +7,13 @@ import (
 )
 
 func InsertClass(db *sql.DB, name string) (int, error) {
-	tx, err := db.Begin()
-	if err != nil {
-		return 0, err
-	}
-
 	query := `
 		INSERT INTO CLASSES (NAME)
 		VALUES ($1)
 		RETURNING ID
 	`
 	var classID int
-	err = tx.QueryRow(query, name).Scan(&classID)
-	if err != nil {
-		tx.Rollback()
-		return 0, err
-	}
-
-	err = tx.Commit()
+	err := db.QueryRow(query, name).Scan(&classID)
 	if err != nil {
 		return 0, err
 	}
@@ -103,40 +92,28 @@ func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 }
 
 func UpdateClass(db *sql.DB, classID int, newName string) error {
-	tx, err := db.Begin()
-	if err != nil {
-		return err
-	}
-
 	query := `
 		UPDATE CLASSES
 		SET NAME = $1
 		WHERE ID = $2
 	`
-	_, err = tx.Exec(query, newName, classID)
+	_, err := db.Exec(query, newName, classID)
 	if err != nil {
-		tx.Rollback()
 		return err
 	}
 
-	return tx.Commit()
+	return nil
 }
 
 func DeleteClass(db *sql.DB, classID int) error {
-	tx, err := db.Begin()
-	if err != nil {
-		return err
-	}
-
 	query := `
 		DELETE FROM CLASSES
 		WHERE ID = $1
 	`
-	_, err = tx.Exec(query, classID)
+	_, err := db.Exec(query, classID)
 	if err != nil {
-		tx.Rollback()
 		return err
 	}
 
-	return tx.Commit()
+	return nil
 }
