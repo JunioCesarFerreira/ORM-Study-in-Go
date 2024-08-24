@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"m/tests/ClassWithGorm/repository"
 	"testing"
 
 	_ "github.com/lib/pq"
@@ -25,13 +26,13 @@ func BenchmarkInsertClass(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		class, err := InsertClass(db, fmt.Sprintf("Test Class %d", i))
+		class, err := repository.InsertClass(db, fmt.Sprintf("Test Class %d", i))
 		if err != nil {
 			b.Fatalf("Failed to insert class: %v", err)
 		}
 
 		// Cleanup
-		if err := DeleteClass(db, class.ID); err != nil {
+		if err := repository.DeleteClass(db, class.ID); err != nil {
 			b.Fatalf("Failed to clean up inserted class: %v", err)
 		}
 	}
@@ -47,7 +48,7 @@ func BenchmarkReadClass(b *testing.B) {
 	b.ResetTimer() // Inicia o timer do benchmark aqui, para não incluir o tempo de setup.
 
 	for i := 0; i < b.N; i++ {
-		_, err := ReadClass(db, classID)
+		_, err := repository.ReadClass(db, classID)
 		if err != nil {
 			b.Fatalf("Failed to read class: %v", err)
 		}
@@ -57,21 +58,21 @@ func BenchmarkReadClass(b *testing.B) {
 func BenchmarkUpdateClass(b *testing.B) {
 	db := setupDB()
 
-	class, err := InsertClass(db, "Initial Name")
+	class, err := repository.InsertClass(db, "Initial Name")
 	if err != nil {
 		b.Fatalf("Failed to insert class: %v", err)
 	}
 
 	defer func() {
 		// Cleanup
-		if err := DeleteClass(db, class.ID); err != nil {
+		if err := repository.DeleteClass(db, class.ID); err != nil {
 			b.Fatalf("Failed to clean up inserted class: %v", err)
 		}
 	}()
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		err := UpdateClass(db, class.ID, fmt.Sprintf("Updated Name %d", i))
+		err := repository.UpdateClass(db, class.ID, fmt.Sprintf("Updated Name %d", i))
 		if err != nil {
 			b.Fatalf("Failed to update class: %v", err)
 		}
@@ -83,12 +84,12 @@ func BenchmarkDeleteClass(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		class, err := InsertClass(db, "Class to Delete")
+		class, err := repository.InsertClass(db, "Class to Delete")
 		if err != nil {
 			b.Fatalf("Failed to insert class: %v", err)
 		}
 
-		err = DeleteClass(db, class.ID)
+		err = repository.DeleteClass(db, class.ID)
 		if err != nil {
 			b.Fatalf("Failed to delete class: %v", err)
 		}
