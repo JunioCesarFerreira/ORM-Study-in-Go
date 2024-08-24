@@ -53,7 +53,6 @@ func (d DAO) Create(tableName string, entity interface{}) (int, error) {
 		idField.Set(reflect.ValueOf(newID))
 	}
 
-	fmt.Printf("New entity created with ID %d\n", newID)
 	return newID, nil
 }
 
@@ -107,8 +106,7 @@ func (d DAO) Update(tableName string, entity interface{}) error {
 		tag := field.Tag.Get("db")
 		fieldValue := val.Field(i).Interface()
 
-		if tag == "id" {
-			// Presume que o campo ID é sempre presente e é o primeiro campo
+		if tag == "ID" {
 			idFieldValue = fieldValue
 			idFieldName = tag
 			continue
@@ -139,7 +137,6 @@ func (d DAO) Update(tableName string, entity interface{}) error {
 		return err
 	}
 
-	fmt.Printf("Entity with ID %v updated\n", idFieldValue)
 	return nil
 }
 
@@ -154,18 +151,9 @@ func (d DAO) Delete(tableName string, id interface{}) error {
 		return err
 	}
 
-	rowsAffected, err := result.RowsAffected()
-	if err != nil {
-		return err
-	}
+	_, err = result.RowsAffected()
 
-	if rowsAffected == 0 {
-		fmt.Println("No rows affected. Entity might not exist.")
-	} else {
-		fmt.Printf("Entity with ID %v deleted from table %s\n", id, tableName)
-	}
-
-	return nil
+	return err
 }
 
 // ReadMultiple busca múltiplas entidades com base em uma condição SQL e argumentos.
