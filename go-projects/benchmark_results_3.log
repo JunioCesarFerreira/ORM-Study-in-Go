@@ -1,0 +1,52 @@
+
+
+==== Benchmark Results for tests/ClassWithGorm ====
+Timestamp: 2024-08-24T19:17:56-03:00
+goos: windows
+goarch: amd64
+pkg: m/tests/ClassWithGorm
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkInsertClass-8   	     123	   8879320 ns/op	   12360 B/op	     167 allocs/op
+BenchmarkReadClass-8     	     196	   5753415 ns/op	   51777 B/op	     957 allocs/op
+BenchmarkUpdateClass-8   	     284	   4416036 ns/op	    6341 B/op	      79 allocs/op
+BenchmarkDeleteClass-8   	     136	   8255049 ns/op	   12106 B/op	     164 allocs/op
+PASS
+ok  	m/tests/ClassWithGorm	7.948s
+?   	m/tests/ClassWithGorm/entities	[no test files]
+?   	m/tests/ClassWithGorm/repository	[no test files]
+
+
+
+==== Benchmark Results for tests/ClassOneQuery ====
+Timestamp: 2024-08-24T19:18:07-03:00
+goos: windows
+goarch: amd64
+pkg: m/tests/ClassOneQuery
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkInsertClass-8   	     168	   6988435 ns/op	    1576 B/op	      35 allocs/op
+BenchmarkReadClass-8     	     387	   3240193 ns/op	   11064 B/op	     517 allocs/op
+BenchmarkUpdateClass-8   	     334	   3143764 ns/op	     414 B/op	      13 allocs/op
+BenchmarkDeleteClass-8   	     171	   6813502 ns/op	    1539 B/op	      34 allocs/op
+PASS
+ok  	m/tests/ClassOneQuery	7.871s
+?   	m/tests/ClassOneQuery/entities	[no test files]
+?   	m/tests/ClassOneQuery/repository	[no test files]
+
+
+
+==== Benchmark Results for tests/ClassDAO ====
+Timestamp: 2024-08-24T19:18:17-03:00
+goos: windows
+goarch: amd64
+pkg: m/tests/ClassDAO
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkInsertClass-8   	     165	   7269721 ns/op	    2036 B/op	      52 allocs/op
+BenchmarkReadClass-8     	      82	  15597262 ns/op	   18661 B/op	     491 allocs/op
+BenchmarkUpdateClass-8   	     384	   3323391 ns/op	     625 B/op	      24 allocs/op
+BenchmarkDeleteClass-8   	     178	   6443615 ns/op	    1995 B/op	      52 allocs/op
+PASS
+ok  	m/tests/ClassDAO	7.602s
+?   	m/tests/ClassDAO/dao	[no test files]
+?   	m/tests/ClassDAO/entities	[no test files]
+?   	m/tests/ClassDAO/repository	[no test files]
+

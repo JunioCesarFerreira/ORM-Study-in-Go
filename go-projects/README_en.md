@@ -4,7 +4,7 @@
 
 This directory contains subdirectories and files related to tests conducted to evaluate different approaches to data access in Go, using a PostgreSQL database. The tests include direct SQL queries, the use of the GORM ORM, and a generic DAO approach.
 
-## Test Results
+## Results of Reading Tests
 
 The `.json` files in this directory represent the query results obtained during the test executions. They are crucial for validating the consistency of the data returned by each experiment, ensuring the accuracy and reliability of the tested data access methods.
 
@@ -49,4 +49,12 @@ go test -benchmem -run=^_test$ -bench . ./...
 ```bash
 cd tests/ClassDAO
 go test -benchmem -run=^_test$ -bench . ./...
+```
+
+#### Execution with Logging
+
+In the `cmd` subdirectory, we implemented a program that runs all the complete benchmark tests. This program logs the results to a file named `benchmark_results.log`. To execute it, run the following command in the `go-projects` directory:
+
+```sh
+go run cmd/main.go
 ```
