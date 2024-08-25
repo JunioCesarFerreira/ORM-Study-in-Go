@@ -8,23 +8,23 @@ import (
 
 func InsertClass(db *sql.DB, name string) (int, error) {
 	class := &entities.Class{Name: name}
-	daoClass := dao.NewDatabase(db)
+	daoClass := dao.NewDAO(db)
 	return daoClass.Create("CLASSES", class)
 }
 
 func UpdateClass(db *sql.DB, class *entities.Class) error {
-	daoClass := dao.NewDatabase(db)
+	daoClass := dao.NewDAO(db)
 	return daoClass.Update("CLASSES", class)
 }
 
 func DeleteClass(db *sql.DB, classID int) error {
-	daoClass := dao.NewDatabase(db)
+	daoClass := dao.NewDAO(db)
 	return daoClass.Delete("CLASSES", classID)
 }
 
 func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 	class := &entities.Class{}
-	daoClass := dao.NewDatabase(db)
+	daoClass := dao.NewDAO(db)
 
 	err := daoClass.Read("CLASSES", classID, class)
 	if err != nil {

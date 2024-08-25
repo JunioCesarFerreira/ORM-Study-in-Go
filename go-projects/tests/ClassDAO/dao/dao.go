@@ -11,7 +11,7 @@ type DAO struct {
 	Db *sql.DB
 }
 
-func NewDatabase(db *sql.DB) DAO {
+func NewDAO(db *sql.DB) DAO {
 	return DAO{Db: db}
 }
 
