@@ -1,6 +1,6 @@
 # Database Schema
 
-🌍 *[**English**](README_en.md) ∙ [Português](README.md)*
+🌍 *[**English**](README.md) ∙ [Português](README_pt.md)*
 
 In this directory, you will find the database schema used in the tests and experiments.
 

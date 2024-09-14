@@ -1,6 +1,6 @@
 # Tests in Go
 
-🌍 *[**English**](README_en.md) ∙ [Português](README.md)*
+🌍 *[**English**](README.md) ∙ [Português](README_pt.md)*
 
 This directory contains subdirectories and files related to tests conducted to evaluate different approaches to data access in Go, using a PostgreSQL database. The tests include direct SQL queries, the use of the GORM ORM, and a generic DAO approach.
 

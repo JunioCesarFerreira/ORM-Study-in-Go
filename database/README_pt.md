@@ -1,6 +1,6 @@
 # Database Schema
 
-🌍 *[English](README_en.md) ∙ [**Português**](README.md)*
+🌍 *[**Português**](README_pt.md) ∙ [English](README.md)*
 
 Neste diretório está o esquemático de banco de dados utilizado nos testes e experimentos.
 

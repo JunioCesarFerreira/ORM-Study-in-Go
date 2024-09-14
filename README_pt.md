@@ -1,6 +1,6 @@
 # Estudo comparativo de desempenho de acesso a banco de dados em Golang
 
-🌍 *[**Português**](README.md) ∙ [English](README_en.md)*
+🌍 *[**Português**](README_pt.md) ∙ [English](README.md)*
 
 ## Descrição
 Este projeto explora diferentes métodos de acesso a dados em um banco de dados PostgreSQL usando Go. Foram implementados e testados três abordagens diferentes para ler dados: uma consulta SQL única, múltiplas consultas CRUD DAO gerenciadas com reflexão e o ORM GORM.
