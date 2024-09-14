@@ -1,20 +1,20 @@
 # Database Schema
 
-🌍 *[**Português**](README.md) ∙ [English](README_en.md)*
+🌍 *[**English**](README_en.md) ∙ [Português](README.md)*
 
-Neste diretório está o esquemático de banco de dados utilizado nos testes e experimentos.
+In this directory, you will find the database schema used in the tests and experiments.
 
-Temos as seguintes entidades:
+We have the following entities:
 
-![DiagramaER](er-diagram.png)
+![ER Diagram](er-diagram.png)
 
-O principal objetivo deste modelo é testar diferentes tipos de dados e relacionamentos `1-N` e `N-N`.
+The main objective of this model is to test different types of data and `1-N` and `N-N` relationships.
 
-Veja o script de criação das tabelas [schema](schema.sql).
+See the table creation script [schema](schema.sql).
 
 # Docker
 
-Para gerar um container Docker com o banco de dados execute neste diretório os seguintes comandos:
+To create a Docker container with the database, run the following commands in this directory:
 
 ```shell
 docker build -t my-db-image .
@@ -24,8 +24,8 @@ docker build -t my-db-image .
 docker run --name my-container-db -p 5432:5432 -d my-db-image
 ```
 
-# Script Python de inserção de dados
+# Python Data Insertion Script
 
-O script [data_insert](data_insert.py) pode ser utilizado para gerar dados na estrutura proposta. Observe que é possível paramentrizar neste script as quantidade de dados a serem inseridos.
+The script [data_insert](data_insert.py) can be used to generate data within the proposed structure. Note that it is possible to parameterize the amount of data to be inserted in this script.
 
-Para executar o script é necessário ter o Python 3.12 instalado.
+To run the script, Python 3.12 must be installed.
