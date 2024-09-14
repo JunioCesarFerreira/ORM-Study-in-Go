@@ -1,93 +1,91 @@
-# Estudo comparativo de desempenho de acesso a banco de dados em Golang
+# Comparative Study of Database Access Performance in Golang
 
-🌍 *[**Português**](README.md) ∙ [English](README_en.md)*
+🌍 *[**English**](README_en.md) ∙ [Portuguese](README.md)*
 
-## Descrição
-Este projeto explora diferentes métodos de acesso a dados em um banco de dados PostgreSQL usando Go. Foram implementados e testados três abordagens diferentes para ler dados: uma consulta SQL única, múltiplas consultas CRUD DAO gerenciadas com reflexão e o ORM GORM.
+## Description
+This project explores different methods of data access in a PostgreSQL database using Go. Three different approaches were implemented and tested for reading data: a single SQL query, multiple CRUD DAO queries managed with reflection, and the GORM ORM.
 
-### Implementações
+### Implementations
 
-- [OneQuery](./go-projects/tests/ClassOneQuery/repository/repository.go): Para esta abordagem implementamos os médodos de acesso ao banco de dados com comandos SQL escritos diretamente no código. Os parâmetros de entrada são passados separadamente para a biblioteca padrão sql, isto evita SQL Injection.
+- [OneQuery](./go-projects/tests/ClassOneQuery/repository/repository.go): For this approach, we implemented the database access methods using SQL commands written directly in the code. Input parameters are passed separately to the standard SQL library, which prevents SQL injection.
 
-- [DAO](./go-projects/tests/ClassDAO/dao/dao.go): Para esta abordagem os comandos SQL são construídos de forma genérica e utilizando reflexão. Nesta abordagem utilizamos tags para indicar os nomes das colunas no banco de dados.
+- [DAO](./go-projects/tests/ClassDAO/dao/dao.go): For this approach, SQL commands are constructed generically using reflection. In this implementation, we use tags to indicate the column names in the database.
 
-- [ORM](./go-projects/tests/ClassWithGorm/repository/repository.go): Para esta abordagem utilizamos um dos ORMs mais famosos para Go o Gorm. A implementação foi feita seguindo as especificações deste framework.
+- [ORM](./go-projects/tests/ClassWithGorm/repository/repository.go): For this approach, we used one of the most popular ORMs for Go, GORM. The implementation was done following the framework's specifications.
 
-## Ambiente de Teste
+## Test Environment
 
-Para facilitar a preparação do ambiente, utilizamos o PostgreSQL em um container Docker. Enquanto o projeto go foi organizado com cada teste no diretório de `tests`. Os detalhes destas partes são delhados nos arquivos:
-- [README go](./go-projects/README.md)
-- [README db](./database/README.md)
+To facilitate the setup, we used PostgreSQL in a Docker container. The Go project was organized with each test in the `tests` directory. Details of these components are provided in the following files:
+- [README Go](./go-projects/README.md)
+- [README DB](./database/README.md)
 
-## Resultados dos Benchmarks
+## Benchmark Results
 
-O ambiente utilizado nos testes tem as seguintes características:
-- **Sistema Operacional**: Windows
-- **Arquitetura do CPU**: AMD64
+The test environment has the following characteristics:
+- **Operating System**: Windows
+- **CPU Architecture**: AMD64
 - **CPU**: Intel(R) Core(TM) i7-10510U @ 1.80GHz
-- **Banco de Dados**: PostgreSQL
+- **Database**: PostgreSQL
 
 ---
 
-### Testes Iniciais apenas de Leitura
+### Initial Read Tests
 
-#### 1. Leitura com Consulta SQL Única
+#### 1. Read with a Single SQL Query
 ```
-Pacote: m/tests/ReadClassOneQuery
-Execuções: 
-- 660 execuções: 1876615 ns/op, 11064 B/op, 517 allocs/op
-- 771 execuções: 1436036 ns/op, 11066 B/op, 517 allocs/op
-- 387 execuções: 3240193 ns/op, 11064 B/op, 517 allocs/op
-```
-
-#### 2. Leitura com DAO implementado com reflexão
-```
-Pacote: m/tests/ReadClassWithCrud
-Execuções:
-- 96 execuções: 12052747 ns/op, 18664 B/op, 491 allocs/op
-- 100 execuções: 10449300 ns/op, 18668 B/op, 491 allocs/op
-- 82 execuções: 15597262 ns/op, 18661 B/op, 491 allocs/op
+Package: m/tests/ReadClassOneQuery
+Executions: 
+- 660 executions: 1876615 ns/op, 11064 B/op, 517 allocs/op
+- 771 executions: 1436036 ns/op, 11066 B/op, 517 allocs/op
+- 387 executions: 3240193 ns/op, 11064 B/op, 517 allocs/op
 ```
 
-#### 3. Leitura com GORM
+#### 2. Read with DAO Implemented Using Reflection
 ```
-Pacote: m/tests/ReadClassWithGorm
-Execuções:
-- 298 execuções: 4154921 ns/op, 51744 B/op, 955 allocs/op
-- 188 execuções: 6620905 ns/op, 51794 B/op, 957 allocs/op
-- 196 execuções: 5753415 ns/op, 51777 B/op, 957 allocs/op
+Package: m/tests/ReadClassWithCrud
+Executions:
+- 96 executions: 12052747 ns/op, 18664 B/op, 491 allocs/op
+- 100 executions: 10449300 ns/op, 18668 B/op, 491 allocs/op
+- 82 executions: 15597262 ns/op, 18661 B/op, 491 allocs/op
+```
+
+#### 3. Read with GORM
+```
+Package: m/tests/ReadClassWithGorm
+Executions:
+- 298 executions: 4154921 ns/op, 51744 B/op, 955 allocs/op
+- 188 executions: 6620905 ns/op, 51794 B/op, 957 allocs/op
+- 196 executions: 5753415 ns/op, 51777 B/op, 957 allocs/op
 ```
 ---
 
-### Testes com CRUD
+### CRUD Tests
 
-No subdiretódio `cmd` implementamos um programa que executa todos os testes completos com benchmark. Este programa registra os resultados em um arquivo `benchmark_results.log`. Para executar, no diretório `go-projects` execute o comando:
+In the `cmd` subdirectory, we implemented a program that runs all the complete benchmark tests. This program logs the results to a file named `benchmark_results.log`. To execute it, run the following command in the `go-projects` directory:
 
 ```sh
 go run cmd/main.go
 ```
 
-### Resultados
+### Results
 
-Utilizando o progama indicado no tópico anterior foram executadas algumas rodadas de testes, em seguida os resultados foram separados e realizadas as médias. O resultado final pode ser observado na seguinte figura:
+Using the program mentioned above, several test rounds were executed, and the results were averaged. The final outcome can be observed in the following figure:
 
 ![picture](./resource/output.png)
 
-O gráfico apresenta o desempenho em nanosegundos por operação (ns/op), o uso de memória em bytes por operação (B/op), e o número de alocações de memória por operação (allocs/op), oferecendo uma visão abrangente da eficiência de cada abordagem testada.
-
-
----
-
-## Conclusão
-Os benchmarks revelam diferenças significativas no desempenho e no uso de recursos entre as três abordagens testadas. A leitura com consulta SQL única, conforme esperado, é a abordagem mais eficiente. Embora em termos de alocação de recursos a implementação com DAO para este exemplo obteve uma alocação de memória comparável com a consulta única. Por fim, a abordagem com GORM, apesar de ser a mais prática em termos de desenvolvimento, resultou em maior tempo de execução e maior uso de recursos.
-Durante a implementação, observamos também que o uso de transações pode piorar bastante a performance.
+The chart presents performance in nanoseconds per operation (ns/op), memory usage in bytes per operation (B/op), and the number of memory allocations per operation (allocs/op), providing a comprehensive view of the efficiency of each tested approach.
 
 ---
 
-## Contribuições
+## Conclusion
+The benchmarks reveal significant differences in performance and resource usage among the three tested approaches. As expected, reading with a single SQL query is the most efficient approach. However, in terms of resource allocation, the DAO implementation had comparable memory allocation to the single query for this example. Finally, the GORM approach, while being the most convenient in terms of development, resulted in longer execution times and higher resource usage. Additionally, during implementation, we observed that using transactions can significantly degrade performance.
 
-Contribuições, correções e sujestões são bem-vindas.
+---
 
-## Licença
+## Contributions
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+Contributions, corrections, and suggestions are welcome.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
