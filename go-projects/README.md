@@ -1,39 +1,40 @@
-# Testes em Go
+# Tests in Go
 
-🌍 *[**Português**](README.md) ∙ [English](README_en.md)*
+🌍 *[**English**](README_en.md) ∙ [Português](README.md)*
 
-Este diretório contém os subdiretórios e arquivos relacionados aos testes realizados para avaliar diferentes abordagens de acesso a dados em Go, utilizando um banco de dados PostgreSQL. Os testes incluem o uso direto de consultas SQL, o uso do ORM GORM e uma abordagem DAO genérica.
+This directory contains subdirectories and files related to tests conducted to evaluate different approaches to data access in Go, using a PostgreSQL database. The tests include direct SQL queries, the use of the GORM ORM, and a generic DAO approach.
 
-## Resultados dos Testes de Leitura
+## Results of Reading Tests
 
-Os arquivos `.json` neste diretório representam os resultados das consultas obtidas durante a execução dos testes. Eles são cruciais para validar a consistência dos dados retornados por cada experimento, assegurando a precisão e a confiabilidade dos métodos de acesso a dados testados.
+The `.json` files in this directory represent the query results obtained during the test executions. They are crucial for validating the consistency of the data returned by each experiment, ensuring the accuracy and reliability of the tested data access methods.
 
-Para uma análise detalhada do desempenho de cada abordagem, consulte os resultados do benchmark disponíveis no [README principal](../README.md) do projeto. Os benchmarks oferecem insights valiosos sobre a eficiência de cada método em termos de tempo de execução e uso de recursos.
+For a detailed analysis of the performance of each approach, please refer to the benchmark results available in the project's [main README](../README.md). The benchmarks provide valuable insights into the efficiency of each method in terms of execution time and resource usage.
 
-## Executando os Testes
+## Running the Tests
 
-### Executando os programas
+### Running the programs
 
-Para executar os testes, é necessário estar no diretório `projects-go` do projeto. Abaixo estão os comandos para executar cada teste individualmente, permitindo que você avalie e compare as diferentes abordagens de acesso a dados.
+To run the tests, you need to be in the project's `projects-go` directory. Below are the commands to run each test individually, allowing you to evaluate and compare the different data access approaches.
 
-Teste com gorm:
+Test with GORM:
 ```bash
 go run tests/ClassWithGorm/main.go
 ```
 
-Teste com consulta única:
+Test with single query:
 ```bash
-go run tests/ClassOneQuery/main.go
+cd tests/ClassOneQuery
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
-Teste com métodos DAO de execução de queries:
+Test with generic (CRUD) query execution methods:
 ```bash
 go run tests/ClassDAO/main.go
 ```
 
-### Executando os benchmarks
+### Running the benchmarks
 
-Para executar os testes com benchmark utilize a execução de testes do VS Code ou execute os seguintes comandos.
+To run the benchmark tests, use the test execution feature of VS Code or execute the following commands.
 
 ```bash
 cd tests/ClassWithGorm
@@ -50,9 +51,9 @@ cd tests/ClassDAO
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
-#### Execução com Log
+#### Execution with Logging
 
-No subdiretódio `cmd` implementamos um programa que executa todos os testes completos com benchmark. Este programa registra os resultados em um arquivo `benchmark_results.log`. Para executar, no diretório `go-projects` execute o comando:
+In the `cmd` subdirectory, we implemented a program that runs all the complete benchmark tests. This program logs the results to a file named `benchmark_results.log`. To execute it, run the following command in the `go-projects` directory:
 
 ```sh
 go run cmd/main.go
