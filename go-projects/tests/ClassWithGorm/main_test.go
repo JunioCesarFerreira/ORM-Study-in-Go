@@ -42,15 +42,27 @@ func BenchmarkInsertClass(b *testing.B) {
 func BenchmarkReadClass(b *testing.B) {
 	db := setupDB()
 
-	// Preparar o ID da classe para o benchmark.
-	classID := 1
+	class, err := repository.InsertClass(db, "Initial Name")
+	if err != nil {
+		b.Fatalf("Failed to insert class: %v", err)
+	}
+
+	defer func() {
+		// Cleanup
+		if err := repository.DeleteClass(db, class.ID); err != nil {
+			b.Fatalf("Failed to clean up inserted class: %v", err)
+		}
+	}()
 
 	b.ResetTimer() // Inicia o timer do benchmark aqui, para não incluir o tempo de setup.
 
 	for i := 0; i < b.N; i++ {
-		_, err := repository.ReadClass(db, classID)
+		classRead, err := repository.ReadClass(db, class.ID)
 		if err != nil {
 			b.Fatalf("Failed to read class: %v", err)
+		}
+		if class.Name != classRead.Name {
+			b.Fatalf("Class name mismatch: expected %s, got %s", class.Name, classRead.Name)
 		}
 	}
 }

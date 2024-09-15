@@ -35,9 +35,9 @@ func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 		i.DATETIME, 
 		i.VALUE
 	FROM CLASSES c
-		INNER JOIN OBJECTS o ON c.ID = o.CLASS_ID
-		INNER JOIN OBJECT_ITEM_LINK l ON o.ID = l.OBJECT_ID
-		INNER JOIN ITEMS i ON i.ID = l.ITEM_ID
+		LEFT JOIN OBJECTS o ON c.ID = o.CLASS_ID
+		LEFT JOIN OBJECT_ITEM_LINK l ON o.ID = l.OBJECT_ID
+		LEFT JOIN ITEMS i ON i.ID = l.ITEM_ID
 	WHERE c.ID = $1
 	`
 
@@ -47,14 +47,14 @@ func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 	}
 	defer rows.Close()
 
-	class := &entities.Class{}
+	class := &entities.Class{Id: 0}
 	objectMap := make(map[int]*entities.Object)
 
 	for rows.Next() {
-		var cID, oID, iID int
-		var cName, oName, iName string
+		var cID, oID, iID sql.NullInt32
+		var cName, oName, iName sql.NullString
 		var oDateTime, iDateTime *time.Time
-		var oValue, iValue float64
+		var oValue, iValue sql.NullFloat64
 
 		err := rows.Scan(&cID, &cName, &oID, &oName, &oDateTime, &oValue, &iID, &iName, &iDateTime, &iValue)
 		if err != nil {
@@ -62,19 +62,19 @@ func ReadClass(db *sql.DB, classID int) (*entities.Class, error) {
 		}
 
 		if class.Id == 0 {
-			class.Id = cID
-			class.Name = cName
+			class.Id = int(cID.Int32)
+			class.Name = cName.String
 		}
 
-		if oID != 0 { // Check if the object exists
-			object, ok := objectMap[oID]
+		if oID.Valid { // Check if the object exists
+			object, ok := objectMap[int(oID.Int32)]
 			if !ok {
-				object = &entities.Object{Id: oID, Name: oName, DateTime: oDateTime, Value: oValue}
-				objectMap[oID] = object
+				object = &entities.Object{Id: int(oID.Int32), Name: oName.String, DateTime: oDateTime, Value: oValue.Float64}
+				objectMap[int(oID.Int32)] = object
 			}
 
-			if iID != 0 { // Check if the item exists
-				item := entities.Item{Id: iID, Name: iName, DateTime: iDateTime, Value: iValue}
+			if iID.Valid { // Check if the item exists
+				item := entities.Item{Id: int(iID.Int32), Name: iName.String, DateTime: iDateTime, Value: iValue.Float64}
 				object.Items = append(object.Items, item)
 			}
 		}
