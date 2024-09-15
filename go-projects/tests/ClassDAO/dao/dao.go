@@ -3,6 +3,7 @@ package dao
 import (
 	"database/sql"
 	"fmt"
+	"m/utils"
 	"reflect"
 	"strings"
 )
@@ -25,14 +26,16 @@ func (d DAO) Create(tableName string, entity interface{}) (int, error) {
 	var fieldValues []interface{}
 	var placeholders []string
 
+	count := 1
 	for i := 0; i < val.NumField(); i++ {
 		field := typeOfT.Field(i)
 		dbTag := field.Tag.Get("db")
 
-		if dbTag != "" && dbTag != "id" { // Excluir o campo ID para autoincremento
+		if dbTag != "" && strings.ToUpper(dbTag) != "ID" { // Excluir o campo ID para autoincremento
 			fieldNames = append(fieldNames, dbTag)
 			fieldValues = append(fieldValues, val.Field(i).Interface())
-			placeholders = append(placeholders, fmt.Sprintf("$%d", i+1))
+			placeholders = append(placeholders, fmt.Sprintf("$%d", count))
+			count++
 		}
 	}
 
@@ -54,6 +57,76 @@ func (d DAO) Create(tableName string, entity interface{}) (int, error) {
 	}
 
 	return newID, nil
+}
+
+func (d DAO) CreateChild(tableName string, entity interface{}, foreignKey string, foreignKeyValue int) (int, error) {
+	// Usar reflexão para iterar sobre os campos da entidade
+	val := reflect.ValueOf(entity).Elem()
+	typeOfT := val.Type()
+
+	var fieldNames []string
+	var fieldValues []interface{}
+	var placeholders []string
+
+	count := 1
+	for i := 0; i < val.NumField(); i++ {
+		field := typeOfT.Field(i)
+		dbTag := field.Tag.Get("db")
+
+		if dbTag != "" && dbTag != "ID" { // Excluir o campo ID para autoincremento
+			fieldNames = append(fieldNames, dbTag)
+			fieldValues = append(fieldValues, val.Field(i).Interface())
+			placeholders = append(placeholders, fmt.Sprintf("$%d", count))
+			count++
+		}
+	}
+
+	// Adicionar a chave estrangeira (foreignKey) à lista de campos e valores
+	fieldNames = append(fieldNames, foreignKey)
+	fieldValues = append(fieldValues, foreignKeyValue)
+	placeholders = append(placeholders, fmt.Sprintf("$%d", count))
+
+	query := fmt.Sprintf(
+		"INSERT INTO %s (%s) VALUES (%s) RETURNING ID",
+		tableName,
+		strings.Join(fieldNames, ", "),
+		strings.Join(placeholders, ", "),
+	)
+
+	var newID int
+	err := d.Db.QueryRow(query, fieldValues...).Scan(&newID)
+	if err != nil {
+		return -1, err
+	}
+
+	if idField := val.FieldByName("ID"); idField.IsValid() && idField.CanSet() {
+		idField.Set(reflect.ValueOf(newID))
+	}
+
+	return newID, nil
+}
+
+func (d DAO) CreateWithLinkSingleSide(existingParentId int, childTable string, linkTable string, childEntity interface{}, parentForeignKey string, childForeignKey string) (int, error) {
+	// Criar o objeto filho (ex: ITEMS)
+	childId, err := d.Create(childTable, childEntity)
+	if err != nil {
+		return -1, err
+	}
+
+	// Inserir na tabela de vínculo (ex: OBJECT_ITEM_LINK) usando o ID do objeto pai existente
+	linkQuery := fmt.Sprintf(
+		"INSERT INTO %s (%s, %s) VALUES ($1, $2)",
+		linkTable,
+		parentForeignKey,
+		childForeignKey,
+	)
+
+	_, err = d.Db.Exec(linkQuery, existingParentId, childId)
+	if err != nil {
+		return childId, err
+	}
+
+	return childId, nil
 }
 
 // Read busca uma entidade pelo ID e preenche a struct passada com os dados encontrados.
@@ -144,6 +217,8 @@ func (d DAO) Update(tableName string, entity interface{}) error {
 func (d DAO) Delete(tableName string, id interface{}) error {
 	// Construir a string de query SQL
 	query := fmt.Sprintf("DELETE FROM %s WHERE id = $1", tableName)
+
+	utils.PrintQuery(query, id)
 
 	// Executar a query SQL
 	result, err := d.Db.Exec(query, id)

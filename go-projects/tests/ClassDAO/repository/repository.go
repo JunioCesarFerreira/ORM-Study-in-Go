@@ -6,10 +6,26 @@ import (
 	"m/tests/ClassDAO/entities"
 )
 
-func InsertClass(db *sql.DB, name string) (int, error) {
-	class := &entities.Class{Name: name}
+func InsertClass(db *sql.DB, class entities.Class) (int, error) {
 	daoClass := dao.NewDAO(db)
-	return daoClass.Create("CLASSES", class)
+	classId, err := daoClass.Create("CLASSES", &class)
+	if err != nil {
+		return classId, err
+	}
+
+	for _, obj := range class.Objects {
+		objId, err := daoClass.CreateChild("OBJECTS", &obj, "CLASS_ID", classId)
+		if err != nil {
+			return classId, err
+		}
+		for _, item := range obj.Items {
+			_, err := daoClass.CreateWithLinkSingleSide(objId, "ITEMS", "OBJECT_ITEM_LINK", &item, "OBJECT_ID", "ITEM_ID")
+			if err != nil {
+				return classId, err
+			}
+		}
+	}
+	return classId, nil
 }
 
 func UpdateClass(db *sql.DB, class *entities.Class) error {
