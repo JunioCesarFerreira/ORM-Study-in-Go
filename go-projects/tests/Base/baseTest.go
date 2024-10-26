@@ -31,7 +31,6 @@ type BaseTask struct {
 	Status        string         `json:"status"`
 	Priority      *string        `json:"priority"`
 	EstimatedTime *string        `json:"estimatedTime"`
-	ProjectID     int            `json:"projectId"`
 	Description   *string        `json:"description"`
 	Resources     []BaseResource `json:"resources"`
 }
@@ -52,7 +51,7 @@ type TestInput struct {
 	Projects  []BaseProject  `json:"projects"`
 }
 
-func OpenInputJson() ([]byte, error) {
+func openInputJson() ([]byte, error) {
 	jsonFile, err := os.Open("../input.json")
 	if err != nil {
 		log.Fatalf("Error opening JSON file: %s", err)
@@ -64,7 +63,7 @@ func OpenInputJson() ([]byte, error) {
 }
 
 func GetInputData(b *testing.B) TestInput {
-	byteValue, err := OpenInputJson()
+	byteValue, err := openInputJson()
 	if err != nil {
 		b.Fatalf("Error reading test JSON file: %s", err)
 	}
@@ -79,7 +78,7 @@ func GetInputData(b *testing.B) TestInput {
 }
 
 func OpenInputData() (*TestInput, error) {
-	byteValue, err := OpenInputJson()
+	byteValue, err := openInputJson()
 	if err != nil {
 		log.Fatalf("Error reading test JSON file: %s", err)
 		return nil, err
@@ -96,13 +95,13 @@ func OpenInputData() (*TestInput, error) {
 }
 
 func Cast[T any](input any) (output T, err error) {
-	// Serializar o input para JSON
+	// Serialize the input to JSON
 	jsonData, err := json.Marshal(input)
 	if err != nil {
 		return output, err
 	}
 
-	// Deserializar o JSON de volta para o tipo especificado T
+	// Deserialize the JSON back to the specified type T
 	err = json.Unmarshal(jsonData, &output)
 	if err != nil {
 		return output, err
@@ -112,7 +111,7 @@ func Cast[T any](input any) (output T, err error) {
 }
 
 func CompareObjectsAsJSON(obj1, obj2 interface{}) error {
-	// Converte ambos os objetos para JSON
+	// Convert both objects to JSON
 	json1, err := json.Marshal(obj1)
 	if err != nil {
 		return fmt.Errorf("erro ao converter obj1 para JSON: %v", err)
