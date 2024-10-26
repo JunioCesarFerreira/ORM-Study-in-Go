@@ -42,7 +42,17 @@ func InsertProject(db *sql.DB, project entities.Project) (int, error) {
 // Updates an existing project.
 func UpdateProject(db *sql.DB, project *entities.Project) error {
 	daoProject := dao.NewDAO(db)
-	return daoProject.Update("PROJECTS", project)
+	err := daoProject.Update("PROJECTS", project)
+	if err != nil {
+		return err
+	}
+	for _, task := range project.Tasks {
+		err := daoProject.Update("TASKS", &task)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 // Deletes a project by ID.

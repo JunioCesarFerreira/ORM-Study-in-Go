@@ -39,7 +39,8 @@ func BenchmarkInsertResources(b *testing.B) {
 		b.Fatalf("Error cleaning database: %s", err)
 	}
 
-	b.ResetTimer()
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
 	for i := 0; i < b.N; i++ {
 		for _, resource := range resources {
 			_, err := repository.InsertResource(db, resource)
@@ -55,7 +56,8 @@ func BenchmarkInsertProject(b *testing.B) {
 	db, _, projects := startupTest(b)
 	defer db.Close()
 
-	b.ResetTimer()
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
 	for i := 0; i < b.N; i++ {
 		for _, project := range projects {
 			_, err := repository.InsertProject(db, project)
@@ -85,7 +87,6 @@ func BenchmarkReadProject(b *testing.B) {
 			}
 		}
 	}
-	b.StopTimer()
 }
 
 // Benchmark for updating a project.
@@ -93,7 +94,8 @@ func BenchmarkUpdateProject(b *testing.B) {
 	db, _, projects := startupTest(b)
 	defer db.Close()
 
-	b.ResetTimer()
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
 	for i := 0; i < b.N; i++ {
 		for _, project := range projects {
 			updatedProject := project

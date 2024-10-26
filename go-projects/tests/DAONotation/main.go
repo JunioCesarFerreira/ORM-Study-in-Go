@@ -36,6 +36,8 @@ func main() {
 
 	fmt.Println("Successfully connected to the database.")
 
+	base.ClearAllProjectsAndResources(db)
+
 	data, err := base.OpenInputData()
 	if err != nil {
 		log.Fatal(err)

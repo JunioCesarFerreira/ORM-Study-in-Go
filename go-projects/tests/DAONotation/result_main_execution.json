@@ -2084,6 +2084,16 @@
             "description": "Description for Task 34",
             "resources": [
                 {
+                    "id": 500,
+                    "type": "labor",
+                    "name": "Resource 500",
+                    "dailyCost": 222.49,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2022-01-11T00:00:00Z"
+                },
+                {
                     "id": 49,
                     "type": "software",
                     "name": "Resource 49",
@@ -2102,16 +2112,6 @@
                     "supplier": null,
                     "quantity": 99,
                     "acquisitionDate": "2020-06-09T00:00:00Z"
-                },
-                {
-                    "id": 500,
-                    "type": "labor",
-                    "name": "Resource 500",
-                    "dailyCost": 222.49,
-                    "status": "maintenance",
-                    "supplier": "Supplier C",
-                    "quantity": 82,
-                    "acquisitionDate": "2022-01-11T00:00:00Z"
                 }
             ]
         },
@@ -2332,6 +2332,16 @@
             "description": "Description for Task 38",
             "resources": [
                 {
+                    "id": 499,
+                    "type": "equipment",
+                    "name": "Resource 499",
+                    "dailyCost": 342.34,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 82,
+                    "acquisitionDate": "2021-06-22T00:00:00Z"
+                },
+                {
                     "id": 72,
                     "type": "labor",
                     "name": "Resource 72",
@@ -2420,16 +2430,6 @@
                     "supplier": "Supplier C",
                     "quantity": 23,
                     "acquisitionDate": "2020-11-21T00:00:00Z"
-                },
-                {
-                    "id": 499,
-                    "type": "equipment",
-                    "name": "Resource 499",
-                    "dailyCost": 342.34,
-                    "status": "available",
-                    "supplier": null,
-                    "quantity": 82,
-                    "acquisitionDate": "2021-06-22T00:00:00Z"
                 }
             ]
         },
@@ -3142,6 +3142,16 @@
             "description": "Description for Task 48",
             "resources": [
                 {
+                    "id": 500,
+                    "type": "labor",
+                    "name": "Resource 500",
+                    "dailyCost": 222.49,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2022-01-11T00:00:00Z"
+                },
+                {
                     "id": 17,
                     "type": "labor",
                     "name": "Resource 17",
@@ -3190,16 +3200,6 @@
                     "supplier": "Supplier B",
                     "quantity": 83,
                     "acquisitionDate": "2023-01-18T00:00:00Z"
-                },
-                {
-                    "id": 500,
-                    "type": "labor",
-                    "name": "Resource 500",
-                    "dailyCost": 222.49,
-                    "status": "maintenance",
-                    "supplier": "Supplier C",
-                    "quantity": 82,
-                    "acquisitionDate": "2022-01-11T00:00:00Z"
                 }
             ]
         },
