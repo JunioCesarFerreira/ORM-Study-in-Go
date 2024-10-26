@@ -1,6 +1,6 @@
 -- Table for Projects
 CREATE TABLE PROJECTS (
-    ID          SERIAL PRIMARY KEY,
+    ID          INTEGER PRIMARY KEY,
     NAME        VARCHAR(255) NOT NULL,
     MANAGER     VARCHAR(255) NOT NULL,    
     START_DATE  DATE NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE PROJECTS (
 
 -- Table for Tasks
 CREATE TABLE TASKS (
-    ID             SERIAL PRIMARY KEY,
+    ID             INTEGER PRIMARY KEY,
     NAME           VARCHAR(255) NOT NULL,
     RESPONSIBLE    VARCHAR(255), 
     DEADLINE       DATE NOT NULL,           -- Deadline for task completion
@@ -24,7 +24,7 @@ CREATE TABLE TASKS (
 
 -- Table for Resources
 CREATE TABLE RESOURCES (
-    ID               SERIAL PRIMARY KEY,
+    ID               INTEGER PRIMARY KEY,
     TYPE             VARCHAR(255) NOT NULL,
     NAME             VARCHAR(255) NOT NULL,
     DAILY_COST       DECIMAL(10, 2),        
@@ -41,3 +41,19 @@ CREATE TABLE TASK_RESOURCE (
     QUANTITY_USED INTEGER,
     PRIMARY KEY (TASK_ID, RESOURCE_ID)
 );
+
+CREATE VIEW TASK_RESOURCE_VIEW AS
+SELECT 
+    tr.TASK_ID,
+    r.ID,
+    r.TYPE,
+    r.NAME,
+    r.DAILY_COST,
+    r.STATUS,
+    r.SUPPLIER,
+    r.QUANTITY,
+    r.ACQUISITION_DATE
+FROM 
+    TASK_RESOURCE tr
+JOIN 
+    RESOURCES r ON tr.RESOURCE_ID = r.ID;
