@@ -5,13 +5,227 @@
 ## Description
 This project explores different methods of data access in a PostgreSQL database using Go. Three different approaches were implemented and tested for reading data: a single SQL query, multiple CRUD DAO queries managed with reflection, and the GORM ORM.
 
-### Implementations
+### Structs Implementations
 
-- [OneQuery](./go-projects/tests/ClassOneQuery/repository/repository.go): For this approach, we implemented the database access methods using SQL commands written directly in the code. Input parameters are passed separately to the standard SQL library, which prevents SQL injection.
+#### DAO Notation
 
-- [DAO](./go-projects/tests/ClassDAO/dao/dao.go): For this approach, SQL commands are constructed generically using reflection. In this implementation, we use tags to indicate the column names in the database.
+Uses only structure declarations with additional tags. Since the idea behind this DAO is simplicity, it includes only tags indicating column names in the database.
 
-- [ORM](./go-projects/tests/ClassWithGorm/repository/repository.go): For this approach, we used one of the most popular ORMs for Go, GORM. The implementation was done following the framework's specifications.
+```go
+package entities
+
+import "time"
+
+type Project struct {
+    ID          int       `db:"ID" json:"id"`
+    Name        string    `db:"NAME" json:"name"`
+    Manager     string    `db:"MANAGER" json:"manager"`
+    StartDate   time.Time `db:"START_DATE" json:"startDate"`
+    EndDate     *time.Time `db:"END_DATE" json:"endDate"`
+    Budget      *float64  `db:"BUDGET" json:"budget"`
+    Description *string   `db:"DESCRIPTION" json:"description"`
+    Tasks       []Task    `json:"tasks"` // Associated tasks
+}
+
+type Task struct {
+    ID            int        `db:"ID" json:"id"`
+    Name          string     `db:"NAME" json:"name"`
+    Responsible   *string    `db:"RESPONSIBLE" json:"responsible"`
+    Deadline      time.Time  `db:"DEADLINE" json:"deadline"`
+    Status        string     `db:"STATUS" json:"status"`
+    Priority      *string    `db:"PRIORITY" json:"priority"`
+    EstimatedTime *string    `db:"ESTIMATED_TIME" json:"estimatedTime"`
+    ProjectID     int        `db:"PROJECT_ID" json:"projectId"`
+    Description   *string    `db:"DESCRIPTION" json:"description"`
+    Resources     []Resource `json:"resources"` // Resources used by the task
+}
+
+type Resource struct {
+    ID              int       `db:"ID" json:"id"`
+    Type            string    `db:"TYPE" json:"type"`
+    Name            string    `db:"NAME" json:"name"`
+    DailyCost       *float64  `db:"DAILY_COST" json:"dailyCost"`
+    Status          string    `db:"STATUS" json:"status"`
+    Supplier        *string   `db:"SUPPLIER" json:"supplier"`
+    Quantity        *int      `db:"QUANTITY" json:"quantity"`
+    AcquisitionDate *time.Time `db:"ACQUISITION_DATE" json:"acquisitionDate"`
+}
+```
+
+#### DirectStruct
+
+In this approach, we only declare the structures without any additional tags.
+
+```go
+package entities
+
+import "time"
+
+type Project struct {
+    ID          int       `json:"id"`
+    Name        string    `json:"name"`
+    Manager     string    `json:"manager"`
+    StartDate   time.Time `json:"startDate"`
+    EndDate     *time.Time `json:"endDate"`
+    Budget      *float64  `json:"budget"`
+    Description *string   `json:"description"`
+    Tasks       []Task    `json:"tasks"` // Associated tasks
+}
+
+type Task struct {
+    ID            int        `json:"id"`
+    Name          string     `json:"name"`
+    Responsible   *string    `json:"responsible"`
+    Deadline      time.Time  `json:"deadline"`
+    Status        string     `json:"status"`
+    Priority      *string    `json:"priority"`
+    EstimatedTime *string    `json:"estimatedTime"`
+    ProjectID     int        `json:"projectId"`
+    Description   *string    `json:"description"`
+    Resources     []Resource `json:"resources"` // Resources used by the task
+}
+
+type Resource struct {
+    ID              int       `json:"id"`
+    Type            string    `json:"type"`
+    Name            string    `json:"name"`
+    DailyCost       *float64  `json:"dailyCost"`
+    Status          string    `json:"status"`
+    Supplier        *string   `json:"supplier"`
+    Quantity        *int      `json:"quantity"`
+    AcquisitionDate *time.Time `json:"acquisitionDate"`
+}
+```
+
+#### GORM
+
+Uses structure declarations with additional tags. In this case, tags can be complex as they must describe relationships and database definitions.
+
+```go
+package entities
+
+import "time"
+
+type Project struct {
+    ID          int       `gorm:"primaryKey" json:"id"`
+    Name        string    `json:"name"`
+    Manager     string    `json:"manager"`
+    StartDate   time.Time `json:"startDate"`
+    EndDate     *time.Time `json:"endDate"`
+    Budget      *float64  `json:"budget"`
+    Description *string   `json:"description"`
+    Tasks       []Task    `gorm:"foreignKey:ProjectID" json:"tasks"` // Associated tasks
+}
+
+type Task struct {
+    ID            int        `gorm:"primaryKey" json:"id"`
+    Name          string     `json:"name"`
+    Responsible   *string    `json:"responsible"`
+    Deadline      time.Time  `json:"deadline"`
+    Status        string     `json:"status"`
+    Priority      *string    `json:"priority"`
+    EstimatedTime *string    `json:"estimatedTime"`
+    ProjectID     int        `json:"projectId"`
+    Description   *string    `json:"description"`
+    Resources     []Resource `gorm:"many2many:task_resource;" json:"resources"` // Resources used by the task
+}
+
+type Resource struct {
+    ID              int       `gorm:"primaryKey" json:"id"`
+    Type            string    `json:"type"`
+    Name            string    `json:"name"`
+    DailyCost       *float64  `json:"dailyCost"`
+    Status          string    `json:"status"`
+    Supplier        *string   `json:"supplier"`
+    Quantity        *int      `json:"quantity"`
+    AcquisitionDate *time.Time `json:"acquisitionDate"`
+    Tasks           []Task    `gorm:"many2many:task_resource;" json:"tasks"` // Tasks that use this resource
+}
+```
+
+#### SQLRepository
+
+Entities are declared as simple structures but must implement an interface that defines mapping methods for the database.
+
+```go
+package entities
+
+import "time"
+
+// Project represents the PROJECTS table
+type Project struct {
+    ID          int       `json:"id"`
+    Name        string    `json:"name"`
+    Manager     string    `json:"manager"`
+    StartDate   time.Time `json:"startDate"`
+    EndDate     *time.Time `json:"endDate"`
+    Budget      *float64  `json:"budget"`
+    Description *string   `json:"description"`
+    Tasks       []Task    `json:"tasks"` // Associated tasks
+}
+
+func (p *Project) TableName() string {
+    return "projects"
+}
+
+func (p *Project) ColumnsNames() []string {
+    return []string{"id", "name", "manager", "start_date", "end_date", "budget", "description"}
+}
+
+func (p *Project) Fields() []interface{} {
+    return []interface{}{&p.ID, &p.Name, &p.Manager, &p.StartDate, &p.EndDate, &p.Budget, &p.Description}
+}
+
+// Task represents the TASKS table
+type Task struct {
+    ID            int       `json:"id"`
+    Name          string    `json:"name"`
+    Responsible   *string   `json:"responsible"`
+    Deadline      time.Time `json:"deadline"`
+    Status        string    `json:"status"`
+    Priority      *string   `json:"priority"`
+    EstimatedTime *string   `json:"estimatedTime"`
+    ProjectID     int       `json:"projectId"`
+    Description   *string   `json:"description"`
+    Resources     []Resource `json:"resources"` // Resources used by the task
+}
+
+func (t *Task) TableName() string {
+    return "tasks"
+}
+
+func (t *Task) ColumnsNames() []string {
+    return []string{"id", "name", "responsible", "deadline", "status", "priority", "estimated_time", "project_id", "description"}
+}
+
+func (t *Task) Fields() []interface{} {
+    return []interface{}{&t.ID, &t.Name, &t.Responsible, &t.Deadline, &t.Status, &t.Priority, &t.EstimatedTime, &t.ProjectID, &t.Description}
+}
+
+// Resource represents the RESOURCES table
+type Resource struct {
+    ID              int       `json:"id"`
+    Type            string    `json:"type"`
+    Name            string    `json:"name"`
+    DailyCost       *float64  `json:"dailyCost"`
+    Status          string    `json:"status"`
+    Supplier        *string   `json:"supplier"`
+    Quantity        *int      `json:"quantity"`
+    AcquisitionDate *time.Time `json:"acquisitionDate"`
+}
+
+func (r *Resource) TableName() string {
+    return "resources"
+}
+
+func (r *Resource) ColumnsNames() []string {
+    return []string{"id", "type", "name", "daily_cost", "status", "supplier", "quantity", "acquisition_date"}
+}
+
+func (r *Resource) Fields() []interface{} {
+    return []interface{}{&r.ID, &r.Type, &r.Name, &r.DailyCost, &r.Status, &r.Supplier, &r.Quantity, &r.AcquisitionDate}
+}
+```
 
 ## Test Environment
 
