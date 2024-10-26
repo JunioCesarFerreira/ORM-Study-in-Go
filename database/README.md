@@ -23,9 +23,3 @@ docker build -t my-db-image .
 ```shell
 docker run --name my-container-db -p 5432:5432 -d my-db-image
 ```
-
-# Python Data Insertion Script
-
-The script [data_insert](data_insert.py) can be used to generate data within the proposed structure. Note that it is possible to parameterize the amount of data to be inserted in this script.
-
-To run the script, Python 3.12 must be installed.
