@@ -24,5 +24,5 @@ func SaveResult(fileName string, obj interface{}) {
 		log.Fatalf("Failed to encode object to JSON: %v", err)
 	}
 
-	log.Println("Object saved to object.json")
+	log.Printf("Object saved to %s", fileName)
 }
