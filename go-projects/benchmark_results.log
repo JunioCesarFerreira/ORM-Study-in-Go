@@ -1,0 +1,55 @@
+
+
+==== Benchmark Results for tests/DAONotation ====
+Timestamp: 2024-10-26T21:29:45-03:00
+goos: windows
+goarch: amd64
+pkg: m/tests/DAONotation
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkInsertResources-8   	       1	1708525300 ns/op	 1341656 B/op	   36371 allocs/op
+BenchmarkInsertProject-8     	       1	11293201000 ns/op	 3434656 B/op	   84951 allocs/op
+BenchmarkReadProject-8       	       1	1424437800 ns/op	 6579312 B/op	  110387 allocs/op
+BenchmarkUpdateProject-8     	       1	1702575200 ns/op	 1162888 B/op	   32197 allocs/op
+BenchmarkDeleteProject-8     	      51	  21419553 ns/op	    5101 B/op	     108 allocs/op
+PASS
+ok  	m/tests/DAONotation	19.112s
+?   	m/tests/DAONotation/dao	[no test files]
+?   	m/tests/DAONotation/entities	[no test files]
+?   	m/tests/DAONotation/repository	[no test files]
+
+
+
+==== Benchmark Results for tests/DirectStruct ====
+Timestamp: 2024-10-26T21:30:09-03:00
+goos: windows
+goarch: amd64
+pkg: m/tests/DirectStruct
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkInsertResources-8   	       1	1742173000 ns/op	  698448 B/op	   17853 allocs/op
+BenchmarkInsertProject-8     	       1	12047926300 ns/op	 2338840 B/op	   58059 allocs/op
+BenchmarkReadProject-8       	       7	 162877486 ns/op	 7036661 B/op	  220088 allocs/op
+BenchmarkUpdateProject-8     	       1	1810443700 ns/op	  570296 B/op	   12536 allocs/op
+BenchmarkDeleteProject-8     	      54	  20791104 ns/op	    4340 B/op	      87 allocs/op
+PASS
+ok  	m/tests/DirectStruct	21.095s
+?   	m/tests/DirectStruct/entities	[no test files]
+?   	m/tests/DirectStruct/repository	[no test files]
+
+
+
+==== Benchmark Results for tests/GORM ====
+Timestamp: 2024-10-26T21:30:27-03:00
+goos: windows
+goarch: amd64
+pkg: m/tests/GORM
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkInsertResources-8   	       1	2297549300 ns/op	 4432264 B/op	   64631 allocs/op
+BenchmarkInsertProject-8     	       3	 433596900 ns/op	13142306 B/op	  151957 allocs/op
+BenchmarkReadProject-8       	       6	 188593283 ns/op	 8460346 B/op	  148304 allocs/op
+BenchmarkUpdateProject-8     	      26	  47340835 ns/op	   98080 B/op	    1230 allocs/op
+BenchmarkDeleteProject-8     	      38	  30274155 ns/op	   62213 B/op	     723 allocs/op
+PASS
+ok  	m/tests/GORM	14.080s
+?   	m/tests/GORM/entities	[no test files]
+?   	m/tests/GORM/repository	[no test files]
+

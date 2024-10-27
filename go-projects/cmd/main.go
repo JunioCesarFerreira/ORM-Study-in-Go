@@ -10,10 +10,9 @@ import (
 func main() {
 	// Define the test directories and the commands you want to run
 	tests := []string{
-		"tests/ClassWithGorm",
-		"tests/ClassOneQuery",
-		"tests/ClassDAO",
-		"tests/SQLRepository",
+		"tests/DAONotation",
+		"tests/DirectStruct",
+		"tests/GORM",
 	}
 
 	// Set the log file name and open it for writing
