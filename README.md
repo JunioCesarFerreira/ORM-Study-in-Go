@@ -35,7 +35,6 @@ type Task struct {
     Status        string     `db:"STATUS" json:"status"`
     Priority      *string    `db:"PRIORITY" json:"priority"`
     EstimatedTime *string    `db:"ESTIMATED_TIME" json:"estimatedTime"`
-    ProjectID     int        `db:"PROJECT_ID" json:"projectId"`
     Description   *string    `db:"DESCRIPTION" json:"description"`
     Resources     []Resource `json:"resources"` // Resources used by the task
 }
@@ -80,7 +79,6 @@ type Task struct {
     Status        string     `json:"status"`
     Priority      *string    `json:"priority"`
     EstimatedTime *string    `json:"estimatedTime"`
-    ProjectID     int        `json:"projectId"`
     Description   *string    `json:"description"`
     Resources     []Resource `json:"resources"` // Resources used by the task
 }
@@ -119,13 +117,13 @@ type Project struct {
 
 type Task struct {
     ID            int        `gorm:"primaryKey" json:"id"`
+    ProjectID     int        `json:"-"`
     Name          string     `json:"name"`
     Responsible   *string    `json:"responsible"`
     Deadline      time.Time  `json:"deadline"`
     Status        string     `json:"status"`
     Priority      *string    `json:"priority"`
     EstimatedTime *string    `json:"estimatedTime"`
-    ProjectID     int        `json:"projectId"`
     Description   *string    `json:"description"`
     Resources     []Resource `gorm:"many2many:task_resource;" json:"resources"` // Resources used by the task
 }
@@ -185,7 +183,6 @@ type Task struct {
     Status        string    `json:"status"`
     Priority      *string   `json:"priority"`
     EstimatedTime *string   `json:"estimatedTime"`
-    ProjectID     int       `json:"projectId"`
     Description   *string   `json:"description"`
     Resources     []Resource `json:"resources"` // Resources used by the task
 }
@@ -199,7 +196,7 @@ func (t *Task) ColumnsNames() []string {
 }
 
 func (t *Task) Fields() []interface{} {
-    return []interface{}{&t.ID, &t.Name, &t.Responsible, &t.Deadline, &t.Status, &t.Priority, &t.EstimatedTime, &t.ProjectID, &t.Description}
+    return []interface{}{&t.ID, &t.Name, &t.Responsible, &t.Deadline, &t.Status, &t.Priority, &t.EstimatedTime, &t.Description}
 }
 
 // Resource represents the RESOURCES table
