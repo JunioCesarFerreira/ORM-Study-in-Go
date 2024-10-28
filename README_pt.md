@@ -118,6 +118,8 @@ Com base nos dados normalizados do experimento de benchmarking, podem-se tirar a
 - O `DirectStruct` mantém uma boa eficiência nas alocações.
 - O `SQLRepository` demonstra a melhor eficiência de alocação, especialmente em `UpdateProject`.
 
+Para detalhes da análise veja o [notebook](ResultAnalysis.ipynb).
+
 ---
 
 ## Contribuições

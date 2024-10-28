@@ -301,6 +301,8 @@ Based on the normalized data from the benchmarking experiment, the following con
 - `DirectStruct` strikes a good balance in allocation efficiency, with lower normalized values for `DeleteProject` and `UpdateProject`.
 - `SQLRepository` has the best allocation efficiency, especially for the `UpdateProject` operation.
 
+For analysis details see the [notebook](ResultAnalysis.ipynb).
+
 ---
 
 ## Contributions
