@@ -13,6 +13,7 @@ func main() {
 		"tests/DAONotation",
 		"tests/DirectStruct",
 		"tests/GORM",
+		"tests/SQLRepository",
 	}
 
 	// Set the log file name and open it for writing

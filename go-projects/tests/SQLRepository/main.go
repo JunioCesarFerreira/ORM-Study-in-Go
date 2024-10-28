@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"log"
 	"m/tests"
+	base "m/tests/Base"
+	"m/tests/SQLRepository/entities"
 	"m/tests/SQLRepository/repository"
 
 	_ "github.com/lib/pq"
@@ -34,11 +36,36 @@ func main() {
 
 	fmt.Println("Successfully connected to the database.")
 
-	classID := 1 // O ID da classe que queremos buscar
-	class, err := repository.ReadClass(db, classID)
+	base.ClearAllProjectsAndResources(db)
+
+	data, err := base.OpenInputData()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	tests.SaveResult("SQLRepository.json", class)
+	resources, err := base.Cast[[]entities.Resource](data.Resources)
+	if err != nil {
+		log.Fatalf("Failed to cast resources: %v", err)
+	}
+
+	for _, resource := range resources {
+		_, err := repository.InsertResource(db, resource)
+		if err != nil {
+			log.Fatalf("Failed to insert resource: %v", err)
+		}
+	}
+
+	firstProject, err := base.Cast[entities.Project](data.Projects[0])
+
+	projectId, err := repository.InsertProject(db, firstProject)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	project, err := repository.ReadProject(db, projectId)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	tests.SaveResult("result_main_execution.json", project)
 }

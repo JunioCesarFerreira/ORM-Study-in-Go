@@ -2,117 +2,131 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
+	base "m/tests/Base"
+	"m/tests/SQLRepository/entities"
 	"m/tests/SQLRepository/repository"
 	"testing"
+	"time"
 
 	_ "github.com/lib/pq"
 )
 
-// Função para estabelecer conexão com o banco de dados (ajuste conforme necessário)
-func setupDB() *sql.DB {
-	psqlInfo := "host=localhost port=5432 user=my_user password=my@Pass%1234 dbname=my_database sslmode=disable"
-	db, err := sql.Open("postgres", psqlInfo)
+func startupTest(b *testing.B) (*sql.DB, []entities.Resource, []entities.Project) {
+	db := base.SetupDB()
+
+	data := base.GetInputData(b)
+
+	resources, err := base.Cast[[]entities.Resource](data.Resources)
 	if err != nil {
-		panic(err)
+		b.Fatalf("Failed to cast resources: %v", err)
 	}
-	return db
+
+	projects, err := base.Cast[[]entities.Project](data.Projects)
+	if err != nil {
+		b.Fatalf("Failed to cast projects: %v", err)
+	}
+
+	return db, resources, projects
 }
 
-func BenchmarkInsertClass(b *testing.B) {
-	db := setupDB()
+// Benchmark for inserting a resources.
+func BenchmarkInsertResources(b *testing.B) {
+	db, resources, _ := startupTest(b)
+	defer db.Close()
+
+	err := base.ClearAllProjectsAndResources(db)
+	if err != nil {
+		b.Fatalf("Error cleaning database: %s", err)
+	}
+
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
+	for i := 0; i < b.N; i++ {
+		for _, resource := range resources {
+			_, err := repository.InsertResource(db, resource)
+			if err != nil {
+				b.Fatalf("Failed to insert resource: %v", err)
+			}
+		}
+	}
+}
+
+// Benchmark for inserting a project.
+func BenchmarkInsertProject(b *testing.B) {
+	db, _, projects := startupTest(b)
+	defer db.Close()
+
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
+	for i := 0; i < b.N; i++ {
+		for _, project := range projects {
+			_, err := repository.InsertProject(db, project)
+			if err != nil {
+				b.Fatalf("Failed to insert project: %v", err)
+			}
+		}
+	}
+}
+
+// BenchmarkReadProject measures the performance of the ReadProject method.
+func BenchmarkReadProject(b *testing.B) {
+	db, _, projects := startupTest(b)
+	defer db.Close()
+
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
+	for i := 0; i < b.N; i++ {
+		for _, project := range projects {
+			readProject, err := repository.ReadProject(db, project.ID)
+			if err != nil {
+				b.Fatalf("Failed to read project: %v", err)
+			}
+
+			if base.CompareObjectsAsJSON(project, *readProject) != nil {
+				b.Errorf("Objects do not match.")
+			}
+		}
+	}
+}
+
+// Benchmark for updating a project.
+func BenchmarkUpdateProject(b *testing.B) {
+	db, _, projects := startupTest(b)
+	defer db.Close()
+
+	b.ResetTimer() // Start benchmark timer here to exclude setup time.
+
+	for i := 0; i < b.N; i++ {
+		for _, project := range projects {
+			updatedProject := project
+			updatedProject.Name = "new name"
+			if len(updatedProject.Tasks) > 0 {
+				updatedProject.Tasks[0].Deadline = time.Now()
+				if len(updatedProject.Tasks[0].Resources) > 0 {
+					updatedProject.Tasks[0].Resources[0].DailyCost = new(float64)
+					*updatedProject.Tasks[0].Resources[0].DailyCost = 3.14
+				}
+			}
+			err := repository.UpdateProject(db, &updatedProject)
+			if err != nil {
+				b.Fatalf("Failed to update project: %v", err)
+			}
+		}
+	}
+}
+
+// Benchmark for deleting a project.
+func BenchmarkDeleteProject(b *testing.B) {
+	db, _, projects := startupTest(b)
 	defer db.Close()
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		classID, err := repository.InsertClass(db, fmt.Sprintf("Test Class %d", i))
-		if err != nil {
-			b.Fatalf("Failed to insert class: %v", err)
-		}
-
-		// Cleanup
-		if err := repository.DeleteClass(db, classID); err != nil {
-			b.Fatalf("Failed to clean up inserted class: %v", err)
-		}
-	}
-}
-
-// BenchmarkReadClass mede o desempenho do método ReadClass.
-func BenchmarkReadClass(b *testing.B) {
-	db := setupDB()
-	defer db.Close()
-
-	// Certifique-se de que a conexão com o banco de dados está funcionando.
-	if err := db.Ping(); err != nil {
-		b.Fatalf("Failed to ping database: %v", err)
-	}
-
-	className := "Initial Name"
-	classID, err := repository.InsertClass(db, className)
-	if err != nil {
-		b.Fatalf("Failed to insert class: %v", err)
-	}
-
-	defer func() {
-		// Cleanup
-		if err := repository.DeleteClass(db, classID); err != nil {
-			b.Fatalf("Failed to clean up inserted class: %v", err)
-		}
-	}()
-
-	b.ResetTimer() // Inicia o timer do benchmark aqui, para não incluir o tempo de setup.
-
-	for i := 0; i < b.N; i++ {
-		class, err := repository.ReadClass(db, classID)
-		if err != nil {
-			b.Fatalf("Failed to read class: %v", err)
-		}
-
-		if class.Name != className {
-			b.Fatalf("Class name mismatch: expected %s, got %s", className, class.Name)
-		}
-	}
-}
-
-func BenchmarkUpdateClass(b *testing.B) {
-	db := setupDB()
-	defer db.Close()
-
-	classID, err := repository.InsertClass(db, "Initial Name")
-	if err != nil {
-		b.Fatalf("Failed to insert class: %v", err)
-	}
-
-	defer func() {
-		// Cleanup
-		if err := repository.DeleteClass(db, classID); err != nil {
-			b.Fatalf("Failed to clean up inserted class: %v", err)
-		}
-	}()
-
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		err := repository.UpdateClass(db, classID, fmt.Sprintf("Updated Name %d", i))
-		if err != nil {
-			b.Fatalf("Failed to update class: %v", err)
-		}
-	}
-}
-
-func BenchmarkDeleteClass(b *testing.B) {
-	db := setupDB()
-	defer db.Close()
-
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		classID, err := repository.InsertClass(db, "Class to Delete")
-		if err != nil {
-			b.Fatalf("Failed to insert class: %v", err)
-		}
-
-		err = repository.DeleteClass(db, classID)
-		if err != nil {
-			b.Fatalf("Failed to delete class: %v", err)
+		for _, project := range projects {
+			err := repository.DeleteProject(db, project.ID)
+			if err != nil {
+				b.Fatalf("Failed to delete project: %v", err)
+			}
 		}
 	}
 }
