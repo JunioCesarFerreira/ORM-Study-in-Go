@@ -18,18 +18,24 @@ To run the tests, you need to be in the project's `projects-go` directory. Below
 
 Test with GORM:
 ```bash
-go run tests/ClassWithGorm/main.go
+go run tests/GORM/main.go
 ```
 
 Test with single query:
 ```bash
-cd tests/ClassOneQuery
+cd tests/DirectStruct/main.go
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
-Test with generic (CRUD) query execution methods:
+Test DAO with notation:
 ```bash
-go run tests/ClassDAO/main.go
+go run tests/DAONotation/main.go
+```
+
+Test with sql repository:
+```bash
+cd tests/SQLRepository/main.go
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ### Running the benchmarks
@@ -37,17 +43,22 @@ go run tests/ClassDAO/main.go
 To run the benchmark tests, use the test execution feature of VS Code or execute the following commands.
 
 ```bash
-cd tests/ClassWithGorm
+cd tests/GORM
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-cd tests/ClassOneQuery
+cd tests/DirectStruct
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-cd tests/ClassDAO
+cd tests/DAONotation
+go test -benchmem -run=^_test$ -bench . ./...
+```
+
+```bash
+cd tests/SQLRepository
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 

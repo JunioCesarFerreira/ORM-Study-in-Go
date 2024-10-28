@@ -240,36 +240,6 @@ The test environment has the following characteristics:
 
 ---
 
-### Initial Read Tests
-
-#### 1. Read with a Single SQL Query
-```
-Package: m/tests/ReadClassOneQuery
-Executions: 
-- 660 executions: 1876615 ns/op, 11064 B/op, 517 allocs/op
-- 771 executions: 1436036 ns/op, 11066 B/op, 517 allocs/op
-- 387 executions: 3240193 ns/op, 11064 B/op, 517 allocs/op
-```
-
-#### 2. Read with DAO Implemented Using Reflection
-```
-Package: m/tests/ReadClassWithCrud
-Executions:
-- 96 executions: 12052747 ns/op, 18664 B/op, 491 allocs/op
-- 100 executions: 10449300 ns/op, 18668 B/op, 491 allocs/op
-- 82 executions: 15597262 ns/op, 18661 B/op, 491 allocs/op
-```
-
-#### 3. Read with GORM
-```
-Package: m/tests/ReadClassWithGorm
-Executions:
-- 298 executions: 4154921 ns/op, 51744 B/op, 955 allocs/op
-- 188 executions: 6620905 ns/op, 51794 B/op, 957 allocs/op
-- 196 executions: 5753415 ns/op, 51777 B/op, 957 allocs/op
-```
----
-
 ### CRUD Tests
 
 In the `cmd` subdirectory, we implemented a program that runs all the complete benchmark tests. This program logs the results to a file named `benchmark_results.log`. To execute it, run the following command in the `go-projects` directory:
@@ -280,16 +250,56 @@ go run cmd/main.go
 
 ### Results
 
-Using the program mentioned above, several test rounds were executed, and the results were averaged. The final outcome can be observed in the following figure:
+Using the program mentioned above, several test rounds were executed, and the results were averaged. The final outcome can be observed in the following table:
 
-![picture](./resource/output.png)
+|    | Methodology   | Operation       | Time per Op (ns) | Bytes per Op | Allocs per Op |
+|----|---------------|-----------------|------------------|--------------|---------------|
+| 0  | DAONotation   | InsertResources | 1,095,199,700   | 1,342,200    | 36,377        |
+| 1  | DAONotation   | InsertProject   | 6,619,269,900   | 3,434,856    | 84,948        |
+| 2  | DAONotation   | ReadProject     | 736,151,200     | 6,382,984    | 109,964       |
+| 3  | DAONotation   | UpdateProject   | 988,277,400     | 1,092,796    | 31,370        |
+| 4  | DAONotation   | DeleteProject   | 11,452,412      | 4,342        | 103           |
+| 5  | DirectStruct  | InsertResources | 1,183,314,100   | 698,448      | 17,853        |
+| 6  | DirectStruct  | InsertProject   | 7,216,280,000   | 2,336,688    | 58,054        |
+| 7  | DirectStruct  | ReadProject     | 91,569,631      | 6,757,562    | 220,025       |
+| 8  | DirectStruct  | UpdateProject   | 1,000,177,050   | 503,960      | 11,732        |
+| 9  | DirectStruct  | DeleteProject   | 11,524,834      | 3,705        | 83            |
+| 10 | GORM          | InsertResources | 2,284,504,400   | 4,468,928    | 64,764        |
+| 11 | GORM          | InsertProject   | 411,073,933     | 13,142,098   | 151,953       |
+| 12 | GORM          | ReadProject     | 189,112,433     | 8,420,336    | 148,320       |
+| 13 | GORM          | UpdateProject   | 42,444,254      | 99,141       | 1,235         |
+| 14 | GORM          | DeleteProject   | 31,744,019      | 62,123       | 724           |
+| 15 | SQLRepository | InsertResources | 1,678,694,100   | 1,384,672    | 25,985        |
+| 16 | SQLRepository | InsertProject   | 12,395,136,800  | 3,521,720    | 81,748        |
+| 17 | SQLRepository | ReadProject     | 196,602,150     | 9,319,502    | 262,171       |
+| 18 | SQLRepository | UpdateProject   | 33,497,850      | 29,992       | 627           |
+| 19 | SQLRepository | DeleteProject   | 21,979,775      | 6,534        | 118           |
 
-The chart presents performance in nanoseconds per operation (ns/op), memory usage in bytes per operation (B/op), and the number of memory allocations per operation (allocs/op), providing a comprehensive view of the efficiency of each tested approach.
 
----
+The table presents performance in nanoseconds per operation (ns/op), memory usage in bytes per operation (B/op), and the number of memory allocations per operation (allocs/op), providing a comprehensive view of the efficiency of each tested approach.
 
-## Conclusion
-The benchmarks reveal significant differences in performance and resource usage among the three tested approaches. As expected, reading with a single SQL query is the most efficient approach. However, in terms of resource allocation, the DAO implementation had comparable memory allocation to the single query for this example. Finally, the GORM approach, while being the most convenient in terms of development, resulted in longer execution times and higher resource usage. Additionally, during implementation, we observed that using transactions can significantly degrade performance.
+The figure below shows in bar graph the results normalized by the maximum in each operation.
+
+![picture](./output.png)
+
+Based on the normalized data from the benchmarking experiment, the following conclusions can be drawn about the CRUD operation performance across different methodologies (`DAONotation`, `DirectStruct`, `GORM`, and `SQLRepository`):
+
+**Time Performance**
+
+- `GORM` demonstrates significant time inefficiency in some operations. It reaches peak performance in both `InsertResources` and `DeleteProject` operations (both normalized to 1.0), but shows a remarkably slow performance in other operations, particularly `InsertProject` and `UpdateProject`.
+- `SQLRepository` is consistent with moderate time efficiency. While `InsertProject` is relatively time-intensive, other operations like `UpdateProject` demonstrate minimal time consumption, suggesting that this method is optimized for certain tasks.
+
+**Memory Allocation (Bytes)**
+
+- `GORM` exhibits the highest memory consumption overall, with several operations reaching a normalized value of 1.0, indicating maximum memory usage.
+- `DAONotation` performs well in memory usage, with all values below 1.0 except for `UpdateProject`. It shows efficiency particularly in `DeleteProject`.
+- `SQLRepository` offers a balanced memory allocation profile across operations, excelling particularly in `UpdateProject`, where memory consumption is minimal.
+
+**Allocation Counts**
+
+- `GORM` tends to allocate the most resources, evident in high `allocs_per_op` values for most operations, showing inefficiency in resource allocation.
+- `DirectStruct` strikes a good balance in allocation efficiency, with lower normalized values for `DeleteProject` and `UpdateProject`.
+- `SQLRepository` has the best allocation efficiency, especially for the `UpdateProject` operation.
 
 ---
 

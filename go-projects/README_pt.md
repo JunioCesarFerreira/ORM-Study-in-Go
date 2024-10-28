@@ -16,19 +16,26 @@ Para uma análise detalhada do desempenho de cada abordagem, consulte os resulta
 
 Para executar os testes, é necessário estar no diretório `projects-go` do projeto. Abaixo estão os comandos para executar cada teste individualmente, permitindo que você avalie e compare as diferentes abordagens de acesso a dados.
 
-Teste com gorm:
+Test with GORM:
 ```bash
-go run tests/ClassWithGorm/main.go
+go run tests/GORM/main.go
 ```
 
-Teste com consulta única:
+Test with single query:
 ```bash
-go run tests/ClassOneQuery/main.go
+cd tests/DirectStruct/main.go
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
-Teste com métodos DAO de execução de queries:
+Test DAO with notation:
 ```bash
-go run tests/ClassDAO/main.go
+go run tests/DAONotation/main.go
+```
+
+Test with sql repository:
+```bash
+cd tests/SQLRepository/main.go
+go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ### Executando os benchmarks
@@ -36,17 +43,22 @@ go run tests/ClassDAO/main.go
 Para executar os testes com benchmark utilize a execução de testes do VS Code ou execute os seguintes comandos.
 
 ```bash
-cd tests/ClassWithGorm
+cd tests/GORM
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-cd tests/ClassOneQuery
+cd tests/DirectStruct
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
 ```bash
-cd tests/ClassDAO
+cd tests/DAONotation
+go test -benchmem -run=^_test$ -bench . ./...
+```
+
+```bash
+cd tests/SQLRepository
 go test -benchmem -run=^_test$ -bench . ./...
 ```
 
