@@ -2,8 +2,8 @@ package dao
 
 import (
 	"database/sql"
-	"fmt"
 	"reflect"
+	"strconv"
 	"strings"
 )
 
@@ -33,17 +33,14 @@ func (d DAO) Create(tableName string, entity interface{}) (int, error) {
 		if dbTag != "" {
 			fieldNames = append(fieldNames, dbTag)
 			fieldValues = append(fieldValues, val.Field(i).Interface())
-			placeholders = append(placeholders, fmt.Sprintf("$%d", count))
+			placeholders = append(placeholders, "$"+strconv.Itoa(count))
 			count++
 		}
 	}
 
-	query := fmt.Sprintf(
-		"INSERT INTO %s (%s) VALUES (%s) RETURNING ID",
-		tableName,
-		strings.Join(fieldNames, ", "),
-		strings.Join(placeholders, ", "),
-	)
+	query := "INSERT INTO " + tableName +
+		" (" + strings.Join(fieldNames, ", ") +
+		") VALUES (" + strings.Join(placeholders, ", ") + ") RETURNING ID"
 
 	var newID int
 	err := d.Db.QueryRow(query, fieldValues...).Scan(&newID)
@@ -75,7 +72,7 @@ func (d DAO) CreateChild(tableName string, entity interface{}, foreignKey string
 		if dbTag != "" {
 			fieldNames = append(fieldNames, dbTag)
 			fieldValues = append(fieldValues, val.Field(i).Interface())
-			placeholders = append(placeholders, fmt.Sprintf("$%d", count))
+			placeholders = append(placeholders, "$"+strconv.Itoa(count))
 			count++
 		}
 	}
@@ -83,14 +80,12 @@ func (d DAO) CreateChild(tableName string, entity interface{}, foreignKey string
 	// Add the foreign key to the list of fields and values
 	fieldNames = append(fieldNames, foreignKey)
 	fieldValues = append(fieldValues, foreignKeyValue)
-	placeholders = append(placeholders, fmt.Sprintf("$%d", count))
+	placeholders = append(placeholders, "$"+strconv.Itoa(count))
 
-	query := fmt.Sprintf(
-		"INSERT INTO %s (%s) VALUES (%s) RETURNING ID",
-		tableName,
-		strings.Join(fieldNames, ", "),
-		strings.Join(placeholders, ", "),
-	)
+	query := "INSERT INTO " + tableName +
+		" (" + strings.Join(fieldNames, ", ") +
+		") VALUES (" + strings.Join(placeholders, ", ") +
+		") RETURNING ID"
 
 	var newID int
 	err := d.Db.QueryRow(query, fieldValues...).Scan(&newID)
@@ -107,12 +102,9 @@ func (d DAO) CreateChild(tableName string, entity interface{}, foreignKey string
 
 func (d DAO) CreateWithLinkSingleSide(existingParentId int, childTable string, linkTable string, childId int, parentForeignKey string, childForeignKey string) (int, error) {
 	// Insert into the link table (e.g., OBJECT_ITEM_LINK) using the existing parent object ID
-	linkQuery := fmt.Sprintf(
-		"INSERT INTO %s (%s, %s) VALUES ($1, $2)",
-		linkTable,
-		parentForeignKey,
-		childForeignKey,
-	)
+	linkQuery := "INSERT INTO " + linkTable +
+		" (" + parentForeignKey + ", " +
+		childForeignKey + ") VALUES ($1, $2)"
 
 	_, err := d.Db.Exec(linkQuery, existingParentId, childId)
 	if err != nil {
@@ -142,11 +134,8 @@ func (d DAO) Read(tableName string, id interface{}, entity interface{}) error {
 	}
 
 	// Build SQL query string
-	query := fmt.Sprintf(
-		"SELECT %s FROM %s WHERE id = $1",
-		strings.Join(columnNames, ", "),
-		tableName,
-	)
+	cols := strings.Join(columnNames, ", ")
+	query := "SELECT " + cols + " FROM " + tableName + " WHERE id = $1"
 
 	// Execute SQL query
 	row := d.Db.QueryRow(query, id)
@@ -179,7 +168,7 @@ func (d DAO) Update(tableName string, entity interface{}) error {
 		}
 
 		if tag != "" {
-			setClause := fmt.Sprintf("%s = $%d", tag, len(fieldValues)+1)
+			setClause := tag + " = $" + strconv.Itoa(len(fieldValues)+1)
 			setClauses = append(setClauses, setClause)
 			fieldValues = append(fieldValues, fieldValue)
 		}
@@ -189,13 +178,10 @@ func (d DAO) Update(tableName string, entity interface{}) error {
 	fieldValues = append(fieldValues, idFieldValue)
 
 	// Build SQL query string
-	query := fmt.Sprintf(
-		"UPDATE %s SET %s WHERE %s = $%d",
-		tableName,
-		strings.Join(setClauses, ", "),
-		idFieldName,
-		len(fieldValues),
-	)
+	query := "UPDATE " + tableName + " SET " +
+		strings.Join(setClauses, ", ") +
+		" WHERE " + idFieldName +
+		" = $" + strconv.Itoa(len(fieldValues))
 
 	// Execute SQL query
 	_, err := d.Db.Exec(query, fieldValues...)
@@ -209,7 +195,7 @@ func (d DAO) Update(tableName string, entity interface{}) error {
 // Delete removes an entity by ID from the specified table.
 func (d DAO) Delete(tableName string, id interface{}) error {
 	// Build SQL query string
-	query := fmt.Sprintf("DELETE FROM %s WHERE id = $1", tableName)
+	query := "DELETE FROM " + tableName + " WHERE id = $1"
 
 	// Execute SQL query
 	result, err := d.Db.Exec(query, id)
@@ -243,11 +229,9 @@ func (d DAO) ReadMultiple(tableName string, condition string, args []interface{}
 		}
 	}
 
-	query := fmt.Sprintf("SELECT %s FROM %s WHERE %s",
-		strings.Join(columnNames, ", "),
-		tableName,
-		condition,
-	)
+	query := "SELECT " + strings.Join(columnNames, ", ") +
+		" FROM " + tableName +
+		" WHERE " + condition
 
 	rows, err := d.Db.Query(query, args...)
 	if err != nil {
