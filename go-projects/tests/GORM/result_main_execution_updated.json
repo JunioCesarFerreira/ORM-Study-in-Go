@@ -1,0 +1,3658 @@
+{
+    "id": 1,
+    "name": "new name test",
+    "manager": "Manager B",
+    "startDate": "2022-08-05T00:00:00Z",
+    "endDate": "2024-08-15T00:00:00Z",
+    "budget": 219685.41,
+    "description": "Description for Project 1",
+    "tasks": [
+        {
+            "id": 1,
+            "name": "Task 1",
+            "responsible": "Bob",
+            "deadline": "2025-12-04T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "7 days",
+            "description": "modified for testing only",
+            "resources": [
+                {
+                    "id": 90,
+                    "type": "equipment",
+                    "name": "Resource 90",
+                    "dailyCost": 87.34,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 82,
+                    "acquisitionDate": "2020-12-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 457,
+                    "type": "labor",
+                    "name": "Resource 457",
+                    "dailyCost": 390,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 77,
+                    "acquisitionDate": "2019-02-20T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Task 2",
+            "responsible": "Bob",
+            "deadline": "2025-02-20T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "6 days",
+            "description": "Description for Task 2",
+            "resources": [
+                {
+                    "id": 51,
+                    "type": "software",
+                    "name": "Resource 51",
+                    "dailyCost": 130.09,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 13,
+                    "acquisitionDate": "2018-08-29T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 111,
+                    "type": "labor",
+                    "name": "Resource 111",
+                    "dailyCost": 165.99,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 88,
+                    "acquisitionDate": "2022-03-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 160,
+                    "type": "equipment",
+                    "name": "Resource 160",
+                    "dailyCost": 304.75,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 62,
+                    "acquisitionDate": "2021-02-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 172,
+                    "type": "equipment",
+                    "name": "Resource 172",
+                    "dailyCost": 468.66,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 20,
+                    "acquisitionDate": "2021-11-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 344,
+                    "type": "labor",
+                    "name": "Resource 344",
+                    "dailyCost": 209.8,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 10,
+                    "acquisitionDate": "2021-04-01T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 405,
+                    "type": "software",
+                    "name": "Resource 405",
+                    "dailyCost": 298.93,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 31,
+                    "acquisitionDate": "2023-09-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 457,
+                    "type": "labor",
+                    "name": "Resource 457",
+                    "dailyCost": 390,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 77,
+                    "acquisitionDate": "2019-02-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 485,
+                    "type": "labor",
+                    "name": "Resource 485",
+                    "dailyCost": 231.24,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 97,
+                    "acquisitionDate": "2019-02-19T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Task 3",
+            "responsible": "Bob",
+            "deadline": "2025-06-11T00:00:00Z",
+            "status": "completed",
+            "priority": "low",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 3",
+            "resources": [
+                {
+                    "id": 48,
+                    "type": "hardware",
+                    "name": "Resource 48",
+                    "dailyCost": 433.25,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 42,
+                    "acquisitionDate": "2018-04-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 113,
+                    "type": "software",
+                    "name": "Resource 113",
+                    "dailyCost": 488.39,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 59,
+                    "acquisitionDate": "2021-11-16T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 138,
+                    "type": "equipment",
+                    "name": "Resource 138",
+                    "dailyCost": 469.97,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 92,
+                    "acquisitionDate": "2019-12-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 168,
+                    "type": "software",
+                    "name": "Resource 168",
+                    "dailyCost": 360.76,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 98,
+                    "acquisitionDate": "2022-10-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 173,
+                    "type": "labor",
+                    "name": "Resource 173",
+                    "dailyCost": 165.1,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 59,
+                    "acquisitionDate": "2020-05-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 187,
+                    "type": "equipment",
+                    "name": "Resource 187",
+                    "dailyCost": 390.54,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 32,
+                    "acquisitionDate": "2023-01-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 330,
+                    "type": "equipment",
+                    "name": "Resource 330",
+                    "dailyCost": 236.38,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 71,
+                    "acquisitionDate": "2023-06-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 438,
+                    "type": "equipment",
+                    "name": "Resource 438",
+                    "dailyCost": 390.37,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 78,
+                    "acquisitionDate": "2018-09-26T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Task 4",
+            "responsible": "Charlie",
+            "deadline": "2025-07-02T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 4",
+            "resources": [
+                {
+                    "id": 39,
+                    "type": "equipment",
+                    "name": "Resource 39",
+                    "dailyCost": 264.44,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 38,
+                    "acquisitionDate": "2021-10-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 172,
+                    "type": "equipment",
+                    "name": "Resource 172",
+                    "dailyCost": 468.66,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 20,
+                    "acquisitionDate": "2021-11-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 215,
+                    "type": "hardware",
+                    "name": "Resource 215",
+                    "dailyCost": 378.13,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 26,
+                    "acquisitionDate": "2022-08-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 226,
+                    "type": "equipment",
+                    "name": "Resource 226",
+                    "dailyCost": 73.43,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 14,
+                    "acquisitionDate": "2023-02-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 298,
+                    "type": "hardware",
+                    "name": "Resource 298",
+                    "dailyCost": 179.98,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 28,
+                    "acquisitionDate": "2021-09-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 310,
+                    "type": "equipment",
+                    "name": "Resource 310",
+                    "dailyCost": 294.07,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 61,
+                    "acquisitionDate": "2023-04-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 332,
+                    "type": "labor",
+                    "name": "Resource 332",
+                    "dailyCost": 373.89,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 48,
+                    "acquisitionDate": "2020-11-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 369,
+                    "type": "software",
+                    "name": "Resource 369",
+                    "dailyCost": 328.4,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 9,
+                    "acquisitionDate": "2022-06-13T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Task 5",
+            "responsible": "Alice",
+            "deadline": "2024-12-14T00:00:00Z",
+            "status": "completed",
+            "priority": "high",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 5",
+            "resources": [
+                {
+                    "id": 138,
+                    "type": "equipment",
+                    "name": "Resource 138",
+                    "dailyCost": 469.97,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 92,
+                    "acquisitionDate": "2019-12-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 238,
+                    "type": "equipment",
+                    "name": "Resource 238",
+                    "dailyCost": 195.36,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 23,
+                    "acquisitionDate": "2019-07-18T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Task 6",
+            "responsible": "Eve",
+            "deadline": "2025-06-24T00:00:00Z",
+            "status": "pending",
+            "priority": "high",
+            "estimatedTime": "2 days",
+            "description": "Description for Task 6",
+            "resources": [
+                {
+                    "id": 65,
+                    "type": "equipment",
+                    "name": "Resource 65",
+                    "dailyCost": 208.22,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 20,
+                    "acquisitionDate": "2019-01-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 268,
+                    "type": "equipment",
+                    "name": "Resource 268",
+                    "dailyCost": 230.99,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 99,
+                    "acquisitionDate": "2020-06-09T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Task 7",
+            "responsible": null,
+            "deadline": "2025-08-20T00:00:00Z",
+            "status": "completed",
+            "priority": "high",
+            "estimatedTime": "9 days",
+            "description": "Description for Task 7",
+            "resources": [
+                {
+                    "id": 90,
+                    "type": "equipment",
+                    "name": "Resource 90",
+                    "dailyCost": 87.34,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 82,
+                    "acquisitionDate": "2020-12-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 155,
+                    "type": "software",
+                    "name": "Resource 155",
+                    "dailyCost": 437.87,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 94,
+                    "acquisitionDate": "2020-09-18T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 211,
+                    "type": "equipment",
+                    "name": "Resource 211",
+                    "dailyCost": 328.92,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 17,
+                    "acquisitionDate": "2023-01-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 242,
+                    "type": "hardware",
+                    "name": "Resource 242",
+                    "dailyCost": 489.2,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 1,
+                    "acquisitionDate": "2020-04-30T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 304,
+                    "type": "equipment",
+                    "name": "Resource 304",
+                    "dailyCost": 451.82,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 91,
+                    "acquisitionDate": "2018-11-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 355,
+                    "type": "hardware",
+                    "name": "Resource 355",
+                    "dailyCost": 242.76,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 30,
+                    "acquisitionDate": "2020-01-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 403,
+                    "type": "labor",
+                    "name": "Resource 403",
+                    "dailyCost": 370.75,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 96,
+                    "acquisitionDate": "2018-07-18T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Task 8",
+            "responsible": "Bob",
+            "deadline": "2024-11-26T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "2 days",
+            "description": "Description for Task 8",
+            "resources": [
+                {
+                    "id": 26,
+                    "type": "labor",
+                    "name": "Resource 26",
+                    "dailyCost": 489.79,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 47,
+                    "acquisitionDate": "2020-05-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 122,
+                    "type": "labor",
+                    "name": "Resource 122",
+                    "dailyCost": 168.71,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 61,
+                    "acquisitionDate": "2022-10-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 203,
+                    "type": "hardware",
+                    "name": "Resource 203",
+                    "dailyCost": 406.24,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 5,
+                    "acquisitionDate": "2019-12-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 313,
+                    "type": "software",
+                    "name": "Resource 313",
+                    "dailyCost": 220.03,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 96,
+                    "acquisitionDate": "2021-08-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 433,
+                    "type": "labor",
+                    "name": "Resource 433",
+                    "dailyCost": 157.47,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 55,
+                    "acquisitionDate": "2018-09-20T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Task 9",
+            "responsible": "Charlie",
+            "deadline": "2025-11-29T00:00:00Z",
+            "status": "completed",
+            "priority": "high",
+            "estimatedTime": "5 days",
+            "description": "Description for Task 9",
+            "resources": [
+                {
+                    "id": 6,
+                    "type": "labor",
+                    "name": "Resource 6",
+                    "dailyCost": 98.95,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 89,
+                    "acquisitionDate": "2018-10-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 130,
+                    "type": "software",
+                    "name": "Resource 130",
+                    "dailyCost": 245.19,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 55,
+                    "acquisitionDate": "2021-06-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 195,
+                    "type": "labor",
+                    "name": "Resource 195",
+                    "dailyCost": 199.33,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 46,
+                    "acquisitionDate": "2019-06-14T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Task 10",
+            "responsible": "Alice",
+            "deadline": "2025-03-08T00:00:00Z",
+            "status": "completed",
+            "priority": "medium",
+            "estimatedTime": "9 days",
+            "description": "Description for Task 10",
+            "resources": [
+                {
+                    "id": 61,
+                    "type": "hardware",
+                    "name": "Resource 61",
+                    "dailyCost": 447.84,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 39,
+                    "acquisitionDate": "2018-11-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 110,
+                    "type": "labor",
+                    "name": "Resource 110",
+                    "dailyCost": 69.46,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 73,
+                    "acquisitionDate": "2018-12-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 133,
+                    "type": "equipment",
+                    "name": "Resource 133",
+                    "dailyCost": 229.87,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 40,
+                    "acquisitionDate": "2023-03-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 153,
+                    "type": "labor",
+                    "name": "Resource 153",
+                    "dailyCost": 356.25,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 62,
+                    "acquisitionDate": "2020-11-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 171,
+                    "type": "hardware",
+                    "name": "Resource 171",
+                    "dailyCost": 462.46,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 44,
+                    "acquisitionDate": "2018-07-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 180,
+                    "type": "software",
+                    "name": "Resource 180",
+                    "dailyCost": 89.93,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 60,
+                    "acquisitionDate": "2023-09-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 357,
+                    "type": "software",
+                    "name": "Resource 357",
+                    "dailyCost": 461.23,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 8,
+                    "acquisitionDate": "2022-03-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 419,
+                    "type": "hardware",
+                    "name": "Resource 419",
+                    "dailyCost": 96.21,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 90,
+                    "acquisitionDate": "2019-09-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 449,
+                    "type": "hardware",
+                    "name": "Resource 449",
+                    "dailyCost": 336.05,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 76,
+                    "acquisitionDate": "2018-09-02T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 473,
+                    "type": "hardware",
+                    "name": "Resource 473",
+                    "dailyCost": 367.52,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 44,
+                    "acquisitionDate": "2018-12-22T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Task 11",
+            "responsible": "Bob",
+            "deadline": "2025-03-17T00:00:00Z",
+            "status": "completed",
+            "priority": "medium",
+            "estimatedTime": "9 days",
+            "description": "Description for Task 11",
+            "resources": [
+                {
+                    "id": 3,
+                    "type": "equipment",
+                    "name": "Resource 3",
+                    "dailyCost": 272.95,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 17,
+                    "acquisitionDate": "2019-07-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 33,
+                    "type": "software",
+                    "name": "Resource 33",
+                    "dailyCost": 282.17,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 43,
+                    "acquisitionDate": "2020-12-04T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 75,
+                    "type": "software",
+                    "name": "Resource 75",
+                    "dailyCost": 211.07,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2019-06-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 212,
+                    "type": "labor",
+                    "name": "Resource 212",
+                    "dailyCost": 411.19,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 2,
+                    "acquisitionDate": "2020-10-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 288,
+                    "type": "software",
+                    "name": "Resource 288",
+                    "dailyCost": 307.4,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 65,
+                    "acquisitionDate": "2019-09-02T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 305,
+                    "type": "software",
+                    "name": "Resource 305",
+                    "dailyCost": 196.84,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 77,
+                    "acquisitionDate": "2022-04-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 445,
+                    "type": "labor",
+                    "name": "Resource 445",
+                    "dailyCost": 333.16,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 97,
+                    "acquisitionDate": "2020-07-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 466,
+                    "type": "software",
+                    "name": "Resource 466",
+                    "dailyCost": 220.9,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 32,
+                    "acquisitionDate": "2019-08-30T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Task 12",
+            "responsible": "Bob",
+            "deadline": "2024-06-03T00:00:00Z",
+            "status": "pending",
+            "priority": "low",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 12",
+            "resources": [
+                {
+                    "id": 5,
+                    "type": "labor",
+                    "name": "Resource 5",
+                    "dailyCost": 354.21,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 50,
+                    "acquisitionDate": "2020-06-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 137,
+                    "type": "software",
+                    "name": "Resource 137",
+                    "dailyCost": 243.86,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 80,
+                    "acquisitionDate": "2019-10-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 157,
+                    "type": "hardware",
+                    "name": "Resource 157",
+                    "dailyCost": 59.26,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 25,
+                    "acquisitionDate": "2022-09-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 261,
+                    "type": "software",
+                    "name": "Resource 261",
+                    "dailyCost": 495.67,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 33,
+                    "acquisitionDate": "2023-05-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 330,
+                    "type": "equipment",
+                    "name": "Resource 330",
+                    "dailyCost": 236.38,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 71,
+                    "acquisitionDate": "2023-06-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 408,
+                    "type": "labor",
+                    "name": "Resource 408",
+                    "dailyCost": 195.01,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 45,
+                    "acquisitionDate": "2018-10-13T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Task 13",
+            "responsible": "Eve",
+            "deadline": "2024-12-27T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "9 days",
+            "description": "Description for Task 13",
+            "resources": [
+                {
+                    "id": 415,
+                    "type": "equipment",
+                    "name": "Resource 415",
+                    "dailyCost": 420.85,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 35,
+                    "acquisitionDate": "2022-09-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 429,
+                    "type": "hardware",
+                    "name": "Resource 429",
+                    "dailyCost": 284.51,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2022-02-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 449,
+                    "type": "hardware",
+                    "name": "Resource 449",
+                    "dailyCost": 336.05,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 76,
+                    "acquisitionDate": "2018-09-02T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Task 14",
+            "responsible": "Eve",
+            "deadline": "2025-10-18T00:00:00Z",
+            "status": "completed",
+            "priority": "medium",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 14",
+            "resources": [
+                {
+                    "id": 9,
+                    "type": "equipment",
+                    "name": "Resource 9",
+                    "dailyCost": 153.5,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 46,
+                    "acquisitionDate": "2019-06-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 221,
+                    "type": "hardware",
+                    "name": "Resource 221",
+                    "dailyCost": 140.68,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 70,
+                    "acquisitionDate": "2019-05-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 388,
+                    "type": "labor",
+                    "name": "Resource 388",
+                    "dailyCost": 353.57,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 35,
+                    "acquisitionDate": "2019-01-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 458,
+                    "type": "hardware",
+                    "name": "Resource 458",
+                    "dailyCost": 252.84,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 63,
+                    "acquisitionDate": "2018-06-19T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Task 15",
+            "responsible": "Charlie",
+            "deadline": "2024-01-13T00:00:00Z",
+            "status": "in progress",
+            "priority": "high",
+            "estimatedTime": "7 days",
+            "description": "Description for Task 15",
+            "resources": [
+                {
+                    "id": 214,
+                    "type": "equipment",
+                    "name": "Resource 214",
+                    "dailyCost": 333.21,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 36,
+                    "acquisitionDate": "2022-04-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 240,
+                    "type": "equipment",
+                    "name": "Resource 240",
+                    "dailyCost": 200.34,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 81,
+                    "acquisitionDate": "2020-08-01T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 375,
+                    "type": "software",
+                    "name": "Resource 375",
+                    "dailyCost": 494.05,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 39,
+                    "acquisitionDate": "2020-12-23T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 410,
+                    "type": "hardware",
+                    "name": "Resource 410",
+                    "dailyCost": 487.72,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 28,
+                    "acquisitionDate": "2019-03-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 443,
+                    "type": "hardware",
+                    "name": "Resource 443",
+                    "dailyCost": 86.24,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 62,
+                    "acquisitionDate": "2021-09-03T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 446,
+                    "type": "hardware",
+                    "name": "Resource 446",
+                    "dailyCost": 186.4,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 27,
+                    "acquisitionDate": "2019-10-03T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Task 16",
+            "responsible": "Eve",
+            "deadline": "2025-04-25T00:00:00Z",
+            "status": "in progress",
+            "priority": "high",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 16",
+            "resources": [
+                {
+                    "id": 20,
+                    "type": "labor",
+                    "name": "Resource 20",
+                    "dailyCost": 348.57,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 24,
+                    "acquisitionDate": "2019-04-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 38,
+                    "type": "software",
+                    "name": "Resource 38",
+                    "dailyCost": 153.29,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 77,
+                    "acquisitionDate": "2023-08-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 99,
+                    "type": "software",
+                    "name": "Resource 99",
+                    "dailyCost": 171.55,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 53,
+                    "acquisitionDate": "2022-01-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 227,
+                    "type": "equipment",
+                    "name": "Resource 227",
+                    "dailyCost": 157.41,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 23,
+                    "acquisitionDate": "2020-03-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 228,
+                    "type": "software",
+                    "name": "Resource 228",
+                    "dailyCost": 345.54,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 36,
+                    "acquisitionDate": "2020-04-30T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 240,
+                    "type": "equipment",
+                    "name": "Resource 240",
+                    "dailyCost": 200.34,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 81,
+                    "acquisitionDate": "2020-08-01T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Task 17",
+            "responsible": "Charlie",
+            "deadline": "2024-02-13T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "6 days",
+            "description": "Description for Task 17",
+            "resources": [
+                {
+                    "id": 13,
+                    "type": "hardware",
+                    "name": "Resource 13",
+                    "dailyCost": 406.34,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 25,
+                    "acquisitionDate": "2020-01-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 55,
+                    "type": "software",
+                    "name": "Resource 55",
+                    "dailyCost": 105.82,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 34,
+                    "acquisitionDate": "2021-07-16T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 133,
+                    "type": "equipment",
+                    "name": "Resource 133",
+                    "dailyCost": 229.87,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 40,
+                    "acquisitionDate": "2023-03-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 421,
+                    "type": "equipment",
+                    "name": "Resource 421",
+                    "dailyCost": 142.32,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 13,
+                    "acquisitionDate": "2018-10-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 449,
+                    "type": "hardware",
+                    "name": "Resource 449",
+                    "dailyCost": 336.05,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 76,
+                    "acquisitionDate": "2018-09-02T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Task 18",
+            "responsible": null,
+            "deadline": "2025-10-14T00:00:00Z",
+            "status": "completed",
+            "priority": "low",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 18",
+            "resources": [
+                {
+                    "id": 23,
+                    "type": "software",
+                    "name": "Resource 23",
+                    "dailyCost": 488.27,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 19,
+                    "acquisitionDate": "2020-10-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 117,
+                    "type": "equipment",
+                    "name": "Resource 117",
+                    "dailyCost": 419.73,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 62,
+                    "acquisitionDate": "2022-06-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 358,
+                    "type": "equipment",
+                    "name": "Resource 358",
+                    "dailyCost": 137.06,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 67,
+                    "acquisitionDate": "2018-05-03T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 407,
+                    "type": "labor",
+                    "name": "Resource 407",
+                    "dailyCost": 91.51,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 100,
+                    "acquisitionDate": "2023-09-27T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 427,
+                    "type": "equipment",
+                    "name": "Resource 427",
+                    "dailyCost": 79.46,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 34,
+                    "acquisitionDate": "2020-07-14T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Task 19",
+            "responsible": null,
+            "deadline": "2024-05-16T00:00:00Z",
+            "status": "pending",
+            "priority": "high",
+            "estimatedTime": "2 days",
+            "description": "Description for Task 19",
+            "resources": [
+                {
+                    "id": 6,
+                    "type": "labor",
+                    "name": "Resource 6",
+                    "dailyCost": 98.95,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 89,
+                    "acquisitionDate": "2018-10-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 16,
+                    "type": "hardware",
+                    "name": "Resource 16",
+                    "dailyCost": 111.56,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 43,
+                    "acquisitionDate": "2019-04-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 23,
+                    "type": "software",
+                    "name": "Resource 23",
+                    "dailyCost": 488.27,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 19,
+                    "acquisitionDate": "2020-10-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 265,
+                    "type": "labor",
+                    "name": "Resource 265",
+                    "dailyCost": 149.15,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 88,
+                    "acquisitionDate": "2020-12-22T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "name": "Task 20",
+            "responsible": "Eve",
+            "deadline": "2025-03-14T00:00:00Z",
+            "status": "completed",
+            "priority": "low",
+            "estimatedTime": "4 days",
+            "description": "Description for Task 20",
+            "resources": [
+                {
+                    "id": 76,
+                    "type": "hardware",
+                    "name": "Resource 76",
+                    "dailyCost": 422.73,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 56,
+                    "acquisitionDate": "2020-10-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 173,
+                    "type": "labor",
+                    "name": "Resource 173",
+                    "dailyCost": 165.1,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 59,
+                    "acquisitionDate": "2020-05-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 479,
+                    "type": "software",
+                    "name": "Resource 479",
+                    "dailyCost": 494.42,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 19,
+                    "acquisitionDate": "2018-09-05T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "name": "Task 21",
+            "responsible": "Charlie",
+            "deadline": "2025-03-03T00:00:00Z",
+            "status": "pending",
+            "priority": "high",
+            "estimatedTime": "5 days",
+            "description": "Description for Task 21",
+            "resources": [
+                {
+                    "id": 350,
+                    "type": "hardware",
+                    "name": "Resource 350",
+                    "dailyCost": 358.21,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 83,
+                    "acquisitionDate": "2020-01-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 394,
+                    "type": "hardware",
+                    "name": "Resource 394",
+                    "dailyCost": 474.02,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 23,
+                    "acquisitionDate": "2019-01-25T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "name": "Task 22",
+            "responsible": "Alice",
+            "deadline": "2024-05-21T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "4 days",
+            "description": "Description for Task 22",
+            "resources": [
+                {
+                    "id": 99,
+                    "type": "software",
+                    "name": "Resource 99",
+                    "dailyCost": 171.55,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 53,
+                    "acquisitionDate": "2022-01-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 273,
+                    "type": "equipment",
+                    "name": "Resource 273",
+                    "dailyCost": 149.64,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 71,
+                    "acquisitionDate": "2018-03-31T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 317,
+                    "type": "software",
+                    "name": "Resource 317",
+                    "dailyCost": 494.09,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 38,
+                    "acquisitionDate": "2018-09-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 364,
+                    "type": "hardware",
+                    "name": "Resource 364",
+                    "dailyCost": 488.44,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 93,
+                    "acquisitionDate": "2020-01-02T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 434,
+                    "type": "hardware",
+                    "name": "Resource 434",
+                    "dailyCost": 369.35,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 20,
+                    "acquisitionDate": "2019-06-12T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "name": "Task 23",
+            "responsible": null,
+            "deadline": "2025-09-08T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "4 days",
+            "description": "Description for Task 23",
+            "resources": [
+                {
+                    "id": 123,
+                    "type": "labor",
+                    "name": "Resource 123",
+                    "dailyCost": 209.12,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 41,
+                    "acquisitionDate": "2019-04-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 204,
+                    "type": "labor",
+                    "name": "Resource 204",
+                    "dailyCost": 369.92,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 12,
+                    "acquisitionDate": "2023-08-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 252,
+                    "type": "hardware",
+                    "name": "Resource 252",
+                    "dailyCost": 484.97,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 12,
+                    "acquisitionDate": "2020-03-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 399,
+                    "type": "hardware",
+                    "name": "Resource 399",
+                    "dailyCost": 464.42,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 92,
+                    "acquisitionDate": "2021-04-30T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "name": "Task 24",
+            "responsible": "Bob",
+            "deadline": "2024-01-27T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "10 days",
+            "description": "Description for Task 24",
+            "resources": [
+                {
+                    "id": 67,
+                    "type": "software",
+                    "name": "Resource 67",
+                    "dailyCost": 317.64,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 43,
+                    "acquisitionDate": "2023-12-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 95,
+                    "type": "hardware",
+                    "name": "Resource 95",
+                    "dailyCost": 493.77,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 45,
+                    "acquisitionDate": "2021-06-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 181,
+                    "type": "hardware",
+                    "name": "Resource 181",
+                    "dailyCost": 121.31,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 92,
+                    "acquisitionDate": "2020-02-29T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 191,
+                    "type": "hardware",
+                    "name": "Resource 191",
+                    "dailyCost": 143.13,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 77,
+                    "acquisitionDate": "2023-02-27T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 194,
+                    "type": "hardware",
+                    "name": "Resource 194",
+                    "dailyCost": 480.77,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 37,
+                    "acquisitionDate": "2018-07-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 350,
+                    "type": "hardware",
+                    "name": "Resource 350",
+                    "dailyCost": 358.21,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 83,
+                    "acquisitionDate": "2020-01-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 378,
+                    "type": "equipment",
+                    "name": "Resource 378",
+                    "dailyCost": 485.63,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 49,
+                    "acquisitionDate": "2020-09-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 387,
+                    "type": "hardware",
+                    "name": "Resource 387",
+                    "dailyCost": 484.19,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 52,
+                    "acquisitionDate": "2020-09-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 468,
+                    "type": "software",
+                    "name": "Resource 468",
+                    "dailyCost": 58.05,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 8,
+                    "acquisitionDate": "2021-07-03T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 496,
+                    "type": "software",
+                    "name": "Resource 496",
+                    "dailyCost": 329.25,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 38,
+                    "acquisitionDate": "2020-10-04T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "name": "Task 25",
+            "responsible": "Eve",
+            "deadline": "2025-10-05T00:00:00Z",
+            "status": "pending",
+            "priority": "high",
+            "estimatedTime": "7 days",
+            "description": "Description for Task 25",
+            "resources": [
+                {
+                    "id": 40,
+                    "type": "labor",
+                    "name": "Resource 40",
+                    "dailyCost": 436.9,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 3,
+                    "acquisitionDate": "2023-09-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 233,
+                    "type": "software",
+                    "name": "Resource 233",
+                    "dailyCost": 204.95,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 78,
+                    "acquisitionDate": "2020-09-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 298,
+                    "type": "hardware",
+                    "name": "Resource 298",
+                    "dailyCost": 179.98,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 28,
+                    "acquisitionDate": "2021-09-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 353,
+                    "type": "equipment",
+                    "name": "Resource 353",
+                    "dailyCost": 392.16,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 79,
+                    "acquisitionDate": "2021-01-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 405,
+                    "type": "software",
+                    "name": "Resource 405",
+                    "dailyCost": 298.93,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 31,
+                    "acquisitionDate": "2023-09-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 443,
+                    "type": "hardware",
+                    "name": "Resource 443",
+                    "dailyCost": 86.24,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 62,
+                    "acquisitionDate": "2021-09-03T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "name": "Task 26",
+            "responsible": "Charlie",
+            "deadline": "2024-04-18T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 26",
+            "resources": [
+                {
+                    "id": 104,
+                    "type": "equipment",
+                    "name": "Resource 104",
+                    "dailyCost": 484.86,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 53,
+                    "acquisitionDate": "2023-02-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 143,
+                    "type": "hardware",
+                    "name": "Resource 143",
+                    "dailyCost": 460.37,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 42,
+                    "acquisitionDate": "2022-03-15T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "name": "Task 27",
+            "responsible": "Charlie",
+            "deadline": "2025-04-06T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "5 days",
+            "description": "Description for Task 27",
+            "resources": [
+                {
+                    "id": 42,
+                    "type": "software",
+                    "name": "Resource 42",
+                    "dailyCost": 324.13,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 87,
+                    "acquisitionDate": "2021-09-03T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 86,
+                    "type": "hardware",
+                    "name": "Resource 86",
+                    "dailyCost": 346.27,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 51,
+                    "acquisitionDate": "2023-09-03T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 197,
+                    "type": "software",
+                    "name": "Resource 197",
+                    "dailyCost": 110.54,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 36,
+                    "acquisitionDate": "2018-06-27T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 245,
+                    "type": "software",
+                    "name": "Resource 245",
+                    "dailyCost": 211.56,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 20,
+                    "acquisitionDate": "2020-11-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 389,
+                    "type": "labor",
+                    "name": "Resource 389",
+                    "dailyCost": 171.15,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 13,
+                    "acquisitionDate": "2019-06-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 428,
+                    "type": "equipment",
+                    "name": "Resource 428",
+                    "dailyCost": 238.39,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 76,
+                    "acquisitionDate": "2022-12-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 437,
+                    "type": "hardware",
+                    "name": "Resource 437",
+                    "dailyCost": 410.14,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 88,
+                    "acquisitionDate": "2020-12-30T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 464,
+                    "type": "hardware",
+                    "name": "Resource 464",
+                    "dailyCost": 434.3,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 83,
+                    "acquisitionDate": "2023-01-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 496,
+                    "type": "software",
+                    "name": "Resource 496",
+                    "dailyCost": 329.25,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 38,
+                    "acquisitionDate": "2020-10-04T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "name": "Task 28",
+            "responsible": "Alice",
+            "deadline": "2025-09-21T00:00:00Z",
+            "status": "completed",
+            "priority": "medium",
+            "estimatedTime": "3 days",
+            "description": "Description for Task 28",
+            "resources": [
+                {
+                    "id": 54,
+                    "type": "labor",
+                    "name": "Resource 54",
+                    "dailyCost": 55.58,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2018-08-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 166,
+                    "type": "labor",
+                    "name": "Resource 166",
+                    "dailyCost": 204.27,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 78,
+                    "acquisitionDate": "2021-11-02T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "name": "Task 29",
+            "responsible": "Alice",
+            "deadline": "2024-08-08T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 29",
+            "resources": [
+                {
+                    "id": 68,
+                    "type": "software",
+                    "name": "Resource 68",
+                    "dailyCost": 73.01,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 91,
+                    "acquisitionDate": "2021-11-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 114,
+                    "type": "software",
+                    "name": "Resource 114",
+                    "dailyCost": 471.99,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 94,
+                    "acquisitionDate": "2022-07-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 196,
+                    "type": "equipment",
+                    "name": "Resource 196",
+                    "dailyCost": 315.83,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 75,
+                    "acquisitionDate": "2019-09-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 200,
+                    "type": "software",
+                    "name": "Resource 200",
+                    "dailyCost": 248.23,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 27,
+                    "acquisitionDate": "2021-09-02T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 220,
+                    "type": "equipment",
+                    "name": "Resource 220",
+                    "dailyCost": 117.55,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 79,
+                    "acquisitionDate": "2022-12-04T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 332,
+                    "type": "labor",
+                    "name": "Resource 332",
+                    "dailyCost": 373.89,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 48,
+                    "acquisitionDate": "2020-11-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 375,
+                    "type": "software",
+                    "name": "Resource 375",
+                    "dailyCost": 494.05,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 39,
+                    "acquisitionDate": "2020-12-23T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 390,
+                    "type": "labor",
+                    "name": "Resource 390",
+                    "dailyCost": 142.35,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 34,
+                    "acquisitionDate": "2018-03-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 408,
+                    "type": "labor",
+                    "name": "Resource 408",
+                    "dailyCost": 195.01,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 45,
+                    "acquisitionDate": "2018-10-13T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "name": "Task 30",
+            "responsible": "Charlie",
+            "deadline": "2025-08-22T00:00:00Z",
+            "status": "pending",
+            "priority": "low",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 30",
+            "resources": [
+                {
+                    "id": 133,
+                    "type": "equipment",
+                    "name": "Resource 133",
+                    "dailyCost": 229.87,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 40,
+                    "acquisitionDate": "2023-03-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 289,
+                    "type": "hardware",
+                    "name": "Resource 289",
+                    "dailyCost": 50.99,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 74,
+                    "acquisitionDate": "2020-03-31T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "name": "Task 31",
+            "responsible": "Bob",
+            "deadline": "2025-01-02T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 31",
+            "resources": [
+                {
+                    "id": 69,
+                    "type": "equipment",
+                    "name": "Resource 69",
+                    "dailyCost": 439.3,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 18,
+                    "acquisitionDate": "2018-04-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 264,
+                    "type": "software",
+                    "name": "Resource 264",
+                    "dailyCost": 366.8,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 16,
+                    "acquisitionDate": "2018-01-27T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "name": "Task 32",
+            "responsible": "Alice",
+            "deadline": "2025-03-21T00:00:00Z",
+            "status": "pending",
+            "priority": "low",
+            "estimatedTime": "3 days",
+            "description": "Description for Task 32",
+            "resources": [
+                {
+                    "id": 138,
+                    "type": "equipment",
+                    "name": "Resource 138",
+                    "dailyCost": 469.97,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 92,
+                    "acquisitionDate": "2019-12-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 194,
+                    "type": "hardware",
+                    "name": "Resource 194",
+                    "dailyCost": 480.77,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 37,
+                    "acquisitionDate": "2018-07-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 339,
+                    "type": "hardware",
+                    "name": "Resource 339",
+                    "dailyCost": 175.13,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 71,
+                    "acquisitionDate": "2023-09-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 372,
+                    "type": "labor",
+                    "name": "Resource 372",
+                    "dailyCost": 376.26,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 81,
+                    "acquisitionDate": "2021-06-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 400,
+                    "type": "hardware",
+                    "name": "Resource 400",
+                    "dailyCost": 204.04,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 32,
+                    "acquisitionDate": "2023-04-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 413,
+                    "type": "hardware",
+                    "name": "Resource 413",
+                    "dailyCost": 192.47,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 93,
+                    "acquisitionDate": "2020-03-28T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "name": "Task 33",
+            "responsible": "Eve",
+            "deadline": "2025-11-28T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "3 days",
+            "description": "Description for Task 33",
+            "resources": [
+                {
+                    "id": 210,
+                    "type": "equipment",
+                    "name": "Resource 210",
+                    "dailyCost": 104.86,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 25,
+                    "acquisitionDate": "2023-10-01T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 346,
+                    "type": "software",
+                    "name": "Resource 346",
+                    "dailyCost": 121.8,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 29,
+                    "acquisitionDate": "2018-10-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 399,
+                    "type": "hardware",
+                    "name": "Resource 399",
+                    "dailyCost": 464.42,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 92,
+                    "acquisitionDate": "2021-04-30T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "name": "Task 34",
+            "responsible": "Bob",
+            "deadline": "2024-01-01T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "6 days",
+            "description": "Description for Task 34",
+            "resources": [
+                {
+                    "id": 49,
+                    "type": "software",
+                    "name": "Resource 49",
+                    "dailyCost": 496.13,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 83,
+                    "acquisitionDate": "2019-01-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 268,
+                    "type": "equipment",
+                    "name": "Resource 268",
+                    "dailyCost": 230.99,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 99,
+                    "acquisitionDate": "2020-06-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 500,
+                    "type": "labor",
+                    "name": "Resource 500",
+                    "dailyCost": 222.49,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2022-01-11T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "name": "Task 35",
+            "responsible": "Bob",
+            "deadline": "2024-12-04T00:00:00Z",
+            "status": "pending",
+            "priority": "low",
+            "estimatedTime": "6 days",
+            "description": "Description for Task 35",
+            "resources": [
+                {
+                    "id": 23,
+                    "type": "software",
+                    "name": "Resource 23",
+                    "dailyCost": 488.27,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 19,
+                    "acquisitionDate": "2020-10-15T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 46,
+                    "type": "software",
+                    "name": "Resource 46",
+                    "dailyCost": 158.08,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 60,
+                    "acquisitionDate": "2019-11-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 104,
+                    "type": "equipment",
+                    "name": "Resource 104",
+                    "dailyCost": 484.86,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 53,
+                    "acquisitionDate": "2023-02-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 227,
+                    "type": "equipment",
+                    "name": "Resource 227",
+                    "dailyCost": 157.41,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 23,
+                    "acquisitionDate": "2020-03-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 291,
+                    "type": "hardware",
+                    "name": "Resource 291",
+                    "dailyCost": 109.84,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 96,
+                    "acquisitionDate": "2019-08-20T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "name": "Task 36",
+            "responsible": "Eve",
+            "deadline": "2025-04-05T00:00:00Z",
+            "status": "completed",
+            "priority": "low",
+            "estimatedTime": "9 days",
+            "description": "Description for Task 36",
+            "resources": [
+                {
+                    "id": 28,
+                    "type": "hardware",
+                    "name": "Resource 28",
+                    "dailyCost": 69.91,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 97,
+                    "acquisitionDate": "2022-01-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 79,
+                    "type": "labor",
+                    "name": "Resource 79",
+                    "dailyCost": 239.01,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 75,
+                    "acquisitionDate": "2023-11-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 215,
+                    "type": "hardware",
+                    "name": "Resource 215",
+                    "dailyCost": 378.13,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 26,
+                    "acquisitionDate": "2022-08-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 303,
+                    "type": "software",
+                    "name": "Resource 303",
+                    "dailyCost": 343.67,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 14,
+                    "acquisitionDate": "2019-01-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 321,
+                    "type": "equipment",
+                    "name": "Resource 321",
+                    "dailyCost": 181.16,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 9,
+                    "acquisitionDate": "2021-07-01T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 427,
+                    "type": "equipment",
+                    "name": "Resource 427",
+                    "dailyCost": 79.46,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 34,
+                    "acquisitionDate": "2020-07-14T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 37,
+            "name": "Task 37",
+            "responsible": "Eve",
+            "deadline": "2024-03-11T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "5 days",
+            "description": "Description for Task 37",
+            "resources": [
+                {
+                    "id": 63,
+                    "type": "hardware",
+                    "name": "Resource 63",
+                    "dailyCost": 475.38,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 97,
+                    "acquisitionDate": "2020-06-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 144,
+                    "type": "labor",
+                    "name": "Resource 144",
+                    "dailyCost": 54.94,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 58,
+                    "acquisitionDate": "2021-03-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 425,
+                    "type": "hardware",
+                    "name": "Resource 425",
+                    "dailyCost": 337.61,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 38,
+                    "acquisitionDate": "2022-05-18T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 440,
+                    "type": "hardware",
+                    "name": "Resource 440",
+                    "dailyCost": 374.78,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 100,
+                    "acquisitionDate": "2021-07-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 464,
+                    "type": "hardware",
+                    "name": "Resource 464",
+                    "dailyCost": 434.3,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 83,
+                    "acquisitionDate": "2023-01-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 484,
+                    "type": "equipment",
+                    "name": "Resource 484",
+                    "dailyCost": 155.47,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 5,
+                    "acquisitionDate": "2019-10-20T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 38,
+            "name": "Task 38",
+            "responsible": "Alice",
+            "deadline": "2025-01-27T00:00:00Z",
+            "status": "pending",
+            "priority": "high",
+            "estimatedTime": "6 days",
+            "description": "Description for Task 38",
+            "resources": [
+                {
+                    "id": 72,
+                    "type": "labor",
+                    "name": "Resource 72",
+                    "dailyCost": 403.49,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 93,
+                    "acquisitionDate": "2022-05-27T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 75,
+                    "type": "software",
+                    "name": "Resource 75",
+                    "dailyCost": 211.07,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2019-06-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 119,
+                    "type": "equipment",
+                    "name": "Resource 119",
+                    "dailyCost": 332.29,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 49,
+                    "acquisitionDate": "2022-10-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 153,
+                    "type": "labor",
+                    "name": "Resource 153",
+                    "dailyCost": 356.25,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 62,
+                    "acquisitionDate": "2020-11-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 181,
+                    "type": "hardware",
+                    "name": "Resource 181",
+                    "dailyCost": 121.31,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 92,
+                    "acquisitionDate": "2020-02-29T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 200,
+                    "type": "software",
+                    "name": "Resource 200",
+                    "dailyCost": 248.23,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 27,
+                    "acquisitionDate": "2021-09-02T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 248,
+                    "type": "hardware",
+                    "name": "Resource 248",
+                    "dailyCost": 404.95,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 100,
+                    "acquisitionDate": "2020-08-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 355,
+                    "type": "hardware",
+                    "name": "Resource 355",
+                    "dailyCost": 242.76,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 30,
+                    "acquisitionDate": "2020-01-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 359,
+                    "type": "hardware",
+                    "name": "Resource 359",
+                    "dailyCost": 252.69,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 23,
+                    "acquisitionDate": "2020-11-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 499,
+                    "type": "equipment",
+                    "name": "Resource 499",
+                    "dailyCost": 342.34,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 82,
+                    "acquisitionDate": "2021-06-22T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 39,
+            "name": "Task 39",
+            "responsible": "Eve",
+            "deadline": "2025-01-18T00:00:00Z",
+            "status": "completed",
+            "priority": "high",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 39",
+            "resources": [
+                {
+                    "id": 244,
+                    "type": "hardware",
+                    "name": "Resource 244",
+                    "dailyCost": 70.56,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 67,
+                    "acquisitionDate": "2019-12-08T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 280,
+                    "type": "equipment",
+                    "name": "Resource 280",
+                    "dailyCost": 72.02,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 38,
+                    "acquisitionDate": "2022-02-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 282,
+                    "type": "equipment",
+                    "name": "Resource 282",
+                    "dailyCost": 168.24,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 94,
+                    "acquisitionDate": "2020-01-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 395,
+                    "type": "hardware",
+                    "name": "Resource 395",
+                    "dailyCost": 217.03,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 98,
+                    "acquisitionDate": "2020-03-21T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 40,
+            "name": "Task 40",
+            "responsible": null,
+            "deadline": "2025-05-11T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "5 days",
+            "description": "Description for Task 40",
+            "resources": [
+                {
+                    "id": 38,
+                    "type": "software",
+                    "name": "Resource 38",
+                    "dailyCost": 153.29,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 77,
+                    "acquisitionDate": "2023-08-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 47,
+                    "type": "software",
+                    "name": "Resource 47",
+                    "dailyCost": 88.36,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 26,
+                    "acquisitionDate": "2019-07-28T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 82,
+                    "type": "software",
+                    "name": "Resource 82",
+                    "dailyCost": 54.71,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 50,
+                    "acquisitionDate": "2020-01-31T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 148,
+                    "type": "software",
+                    "name": "Resource 148",
+                    "dailyCost": 491.95,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 61,
+                    "acquisitionDate": "2019-10-23T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 214,
+                    "type": "equipment",
+                    "name": "Resource 214",
+                    "dailyCost": 333.21,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 36,
+                    "acquisitionDate": "2022-04-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 215,
+                    "type": "hardware",
+                    "name": "Resource 215",
+                    "dailyCost": 378.13,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 26,
+                    "acquisitionDate": "2022-08-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 243,
+                    "type": "labor",
+                    "name": "Resource 243",
+                    "dailyCost": 357.81,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 61,
+                    "acquisitionDate": "2023-07-23T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 360,
+                    "type": "software",
+                    "name": "Resource 360",
+                    "dailyCost": 262.47,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 7,
+                    "acquisitionDate": "2023-11-05T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 492,
+                    "type": "equipment",
+                    "name": "Resource 492",
+                    "dailyCost": 191.32,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 53,
+                    "acquisitionDate": "2020-01-29T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 41,
+            "name": "Task 41",
+            "responsible": "Alice",
+            "deadline": "2024-04-10T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "7 days",
+            "description": "Description for Task 41",
+            "resources": [
+                {
+                    "id": 84,
+                    "type": "software",
+                    "name": "Resource 84",
+                    "dailyCost": 100.77,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 17,
+                    "acquisitionDate": "2023-07-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 113,
+                    "type": "software",
+                    "name": "Resource 113",
+                    "dailyCost": 488.39,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 59,
+                    "acquisitionDate": "2021-11-16T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 195,
+                    "type": "labor",
+                    "name": "Resource 195",
+                    "dailyCost": 199.33,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 46,
+                    "acquisitionDate": "2019-06-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 221,
+                    "type": "hardware",
+                    "name": "Resource 221",
+                    "dailyCost": 140.68,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 70,
+                    "acquisitionDate": "2019-05-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 251,
+                    "type": "hardware",
+                    "name": "Resource 251",
+                    "dailyCost": 308.67,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 81,
+                    "acquisitionDate": "2020-05-16T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 259,
+                    "type": "labor",
+                    "name": "Resource 259",
+                    "dailyCost": 495.23,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 93,
+                    "acquisitionDate": "2023-08-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 266,
+                    "type": "labor",
+                    "name": "Resource 266",
+                    "dailyCost": 275.06,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 32,
+                    "acquisitionDate": "2020-04-10T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 308,
+                    "type": "labor",
+                    "name": "Resource 308",
+                    "dailyCost": 280.64,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 88,
+                    "acquisitionDate": "2019-07-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 418,
+                    "type": "software",
+                    "name": "Resource 418",
+                    "dailyCost": 75.59,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 31,
+                    "acquisitionDate": "2023-06-25T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 42,
+            "name": "Task 42",
+            "responsible": "Bob",
+            "deadline": "2024-05-20T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 42",
+            "resources": [
+                {
+                    "id": 193,
+                    "type": "hardware",
+                    "name": "Resource 193",
+                    "dailyCost": 497.64,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 24,
+                    "acquisitionDate": "2018-07-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 395,
+                    "type": "hardware",
+                    "name": "Resource 395",
+                    "dailyCost": 217.03,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 98,
+                    "acquisitionDate": "2020-03-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 397,
+                    "type": "hardware",
+                    "name": "Resource 397",
+                    "dailyCost": 244.67,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 97,
+                    "acquisitionDate": "2023-11-01T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "name": "Task 43",
+            "responsible": "Bob",
+            "deadline": "2025-01-25T00:00:00Z",
+            "status": "in progress",
+            "priority": "high",
+            "estimatedTime": "2 days",
+            "description": "Description for Task 43",
+            "resources": [
+                {
+                    "id": 123,
+                    "type": "labor",
+                    "name": "Resource 123",
+                    "dailyCost": 209.12,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 41,
+                    "acquisitionDate": "2019-04-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 254,
+                    "type": "software",
+                    "name": "Resource 254",
+                    "dailyCost": 377.61,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 79,
+                    "acquisitionDate": "2019-08-30T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 343,
+                    "type": "equipment",
+                    "name": "Resource 343",
+                    "dailyCost": 74.64,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 61,
+                    "acquisitionDate": "2021-12-20T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 399,
+                    "type": "hardware",
+                    "name": "Resource 399",
+                    "dailyCost": 464.42,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 92,
+                    "acquisitionDate": "2021-04-30T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 44,
+            "name": "Task 44",
+            "responsible": "Eve",
+            "deadline": "2024-07-28T00:00:00Z",
+            "status": "completed",
+            "priority": "medium",
+            "estimatedTime": "8 days",
+            "description": "Description for Task 44",
+            "resources": [
+                {
+                    "id": 61,
+                    "type": "hardware",
+                    "name": "Resource 61",
+                    "dailyCost": 447.84,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 39,
+                    "acquisitionDate": "2018-11-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 73,
+                    "type": "equipment",
+                    "name": "Resource 73",
+                    "dailyCost": 277.29,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 8,
+                    "acquisitionDate": "2020-02-21T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 123,
+                    "type": "labor",
+                    "name": "Resource 123",
+                    "dailyCost": 209.12,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 41,
+                    "acquisitionDate": "2019-04-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 347,
+                    "type": "labor",
+                    "name": "Resource 347",
+                    "dailyCost": 247.26,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 64,
+                    "acquisitionDate": "2022-11-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 389,
+                    "type": "labor",
+                    "name": "Resource 389",
+                    "dailyCost": 171.15,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 13,
+                    "acquisitionDate": "2019-06-09T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 45,
+            "name": "Task 45",
+            "responsible": "Charlie",
+            "deadline": "2025-05-28T00:00:00Z",
+            "status": "pending",
+            "priority": "medium",
+            "estimatedTime": "4 days",
+            "description": "Description for Task 45",
+            "resources": [
+                {
+                    "id": 11,
+                    "type": "labor",
+                    "name": "Resource 11",
+                    "dailyCost": 376.02,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 20,
+                    "acquisitionDate": "2019-07-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 99,
+                    "type": "software",
+                    "name": "Resource 99",
+                    "dailyCost": 171.55,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 53,
+                    "acquisitionDate": "2022-01-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 155,
+                    "type": "software",
+                    "name": "Resource 155",
+                    "dailyCost": 437.87,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 94,
+                    "acquisitionDate": "2020-09-18T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 195,
+                    "type": "labor",
+                    "name": "Resource 195",
+                    "dailyCost": 199.33,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 46,
+                    "acquisitionDate": "2019-06-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 223,
+                    "type": "hardware",
+                    "name": "Resource 223",
+                    "dailyCost": 371.81,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 8,
+                    "acquisitionDate": "2018-10-03T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 264,
+                    "type": "software",
+                    "name": "Resource 264",
+                    "dailyCost": 366.8,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 16,
+                    "acquisitionDate": "2018-01-27T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 428,
+                    "type": "equipment",
+                    "name": "Resource 428",
+                    "dailyCost": 238.39,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 76,
+                    "acquisitionDate": "2022-12-21T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 46,
+            "name": "Task 46",
+            "responsible": "Alice",
+            "deadline": "2025-10-08T00:00:00Z",
+            "status": "pending",
+            "priority": "low",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 46",
+            "resources": [
+                {
+                    "id": 57,
+                    "type": "software",
+                    "name": "Resource 57",
+                    "dailyCost": 291.84,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 77,
+                    "acquisitionDate": "2020-02-11T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 100,
+                    "type": "equipment",
+                    "name": "Resource 100",
+                    "dailyCost": 471.21,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 58,
+                    "acquisitionDate": "2020-06-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 105,
+                    "type": "hardware",
+                    "name": "Resource 105",
+                    "dailyCost": 291.69,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 71,
+                    "acquisitionDate": "2020-07-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 117,
+                    "type": "equipment",
+                    "name": "Resource 117",
+                    "dailyCost": 419.73,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 62,
+                    "acquisitionDate": "2022-06-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 189,
+                    "type": "software",
+                    "name": "Resource 189",
+                    "dailyCost": 188.41,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 54,
+                    "acquisitionDate": "2019-02-18T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 259,
+                    "type": "labor",
+                    "name": "Resource 259",
+                    "dailyCost": 495.23,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 93,
+                    "acquisitionDate": "2023-08-07T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 459,
+                    "type": "labor",
+                    "name": "Resource 459",
+                    "dailyCost": 332.77,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 32,
+                    "acquisitionDate": "2020-02-19T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 475,
+                    "type": "software",
+                    "name": "Resource 475",
+                    "dailyCost": 335.77,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 15,
+                    "acquisitionDate": "2022-12-29T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 477,
+                    "type": "labor",
+                    "name": "Resource 477",
+                    "dailyCost": 467.33,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 59,
+                    "acquisitionDate": "2022-06-27T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 47,
+            "name": "Task 47",
+            "responsible": "Alice",
+            "deadline": "2024-06-13T00:00:00Z",
+            "status": "in progress",
+            "priority": "high",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 47",
+            "resources": [
+                {
+                    "id": 50,
+                    "type": "software",
+                    "name": "Resource 50",
+                    "dailyCost": 91.08,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 25,
+                    "acquisitionDate": "2018-01-09T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 64,
+                    "type": "software",
+                    "name": "Resource 64",
+                    "dailyCost": 247.97,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 84,
+                    "acquisitionDate": "2022-08-30T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 129,
+                    "type": "hardware",
+                    "name": "Resource 129",
+                    "dailyCost": 157.2,
+                    "status": "available",
+                    "supplier": "Supplier A",
+                    "quantity": 61,
+                    "acquisitionDate": "2020-10-12T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 195,
+                    "type": "labor",
+                    "name": "Resource 195",
+                    "dailyCost": 199.33,
+                    "status": "available",
+                    "supplier": null,
+                    "quantity": 46,
+                    "acquisitionDate": "2019-06-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 286,
+                    "type": "software",
+                    "name": "Resource 286",
+                    "dailyCost": 424.05,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 31,
+                    "acquisitionDate": "2021-09-04T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 298,
+                    "type": "hardware",
+                    "name": "Resource 298",
+                    "dailyCost": 179.98,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 28,
+                    "acquisitionDate": "2021-09-17T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 324,
+                    "type": "labor",
+                    "name": "Resource 324",
+                    "dailyCost": 204.59,
+                    "status": "maintenance",
+                    "supplier": "Supplier A",
+                    "quantity": 20,
+                    "acquisitionDate": "2019-11-02T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 369,
+                    "type": "software",
+                    "name": "Resource 369",
+                    "dailyCost": 328.4,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 9,
+                    "acquisitionDate": "2022-06-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 386,
+                    "type": "software",
+                    "name": "Resource 386",
+                    "dailyCost": 82.89,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 25,
+                    "acquisitionDate": "2021-03-30T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 48,
+            "name": "Task 48",
+            "responsible": null,
+            "deadline": "2024-07-12T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "10 days",
+            "description": "Description for Task 48",
+            "resources": [
+                {
+                    "id": 17,
+                    "type": "labor",
+                    "name": "Resource 17",
+                    "dailyCost": 221.31,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 67,
+                    "acquisitionDate": "2022-10-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 191,
+                    "type": "hardware",
+                    "name": "Resource 191",
+                    "dailyCost": 143.13,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 77,
+                    "acquisitionDate": "2023-02-27T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 238,
+                    "type": "equipment",
+                    "name": "Resource 238",
+                    "dailyCost": 195.36,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 23,
+                    "acquisitionDate": "2019-07-18T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 265,
+                    "type": "labor",
+                    "name": "Resource 265",
+                    "dailyCost": 149.15,
+                    "status": "maintenance",
+                    "supplier": "Supplier B",
+                    "quantity": 88,
+                    "acquisitionDate": "2020-12-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 383,
+                    "type": "hardware",
+                    "name": "Resource 383",
+                    "dailyCost": 239.99,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 83,
+                    "acquisitionDate": "2023-01-18T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 500,
+                    "type": "labor",
+                    "name": "Resource 500",
+                    "dailyCost": 222.49,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 82,
+                    "acquisitionDate": "2022-01-11T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 49,
+            "name": "Task 49",
+            "responsible": "Alice",
+            "deadline": "2025-04-17T00:00:00Z",
+            "status": "in progress",
+            "priority": "low",
+            "estimatedTime": "10 days",
+            "description": "Description for Task 49",
+            "resources": [
+                {
+                    "id": 20,
+                    "type": "labor",
+                    "name": "Resource 20",
+                    "dailyCost": 348.57,
+                    "status": "available",
+                    "supplier": "Supplier B",
+                    "quantity": 24,
+                    "acquisitionDate": "2019-04-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 40,
+                    "type": "labor",
+                    "name": "Resource 40",
+                    "dailyCost": 436.9,
+                    "status": "in use",
+                    "supplier": "Supplier A",
+                    "quantity": 3,
+                    "acquisitionDate": "2023-09-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 117,
+                    "type": "equipment",
+                    "name": "Resource 117",
+                    "dailyCost": 419.73,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 62,
+                    "acquisitionDate": "2022-06-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 251,
+                    "type": "hardware",
+                    "name": "Resource 251",
+                    "dailyCost": 308.67,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 81,
+                    "acquisitionDate": "2020-05-16T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 306,
+                    "type": "labor",
+                    "name": "Resource 306",
+                    "dailyCost": 86.18,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 81,
+                    "acquisitionDate": "2020-07-04T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 465,
+                    "type": "hardware",
+                    "name": "Resource 465",
+                    "dailyCost": 287.2,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 56,
+                    "acquisitionDate": "2019-03-14T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 491,
+                    "type": "labor",
+                    "name": "Resource 491",
+                    "dailyCost": 229.7,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 20,
+                    "acquisitionDate": "2023-09-27T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "name": "Task 50",
+            "responsible": null,
+            "deadline": "2025-07-08T00:00:00Z",
+            "status": "completed",
+            "priority": "low",
+            "estimatedTime": "1 day",
+            "description": "Description for Task 50",
+            "resources": [
+                {
+                    "id": 206,
+                    "type": "software",
+                    "name": "Resource 206",
+                    "dailyCost": 444.85,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 96,
+                    "acquisitionDate": "2020-10-29T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 232,
+                    "type": "labor",
+                    "name": "Resource 232",
+                    "dailyCost": 408.69,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 69,
+                    "acquisitionDate": "2018-05-29T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 236,
+                    "type": "software",
+                    "name": "Resource 236",
+                    "dailyCost": 416.26,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 28,
+                    "acquisitionDate": "2020-07-13T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 245,
+                    "type": "software",
+                    "name": "Resource 245",
+                    "dailyCost": 211.56,
+                    "status": "in use",
+                    "supplier": "Supplier B",
+                    "quantity": 20,
+                    "acquisitionDate": "2020-11-06T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 295,
+                    "type": "labor",
+                    "name": "Resource 295",
+                    "dailyCost": 117.98,
+                    "status": "in use",
+                    "supplier": null,
+                    "quantity": 53,
+                    "acquisitionDate": "2023-05-22T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 329,
+                    "type": "hardware",
+                    "name": "Resource 329",
+                    "dailyCost": 393.08,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 37,
+                    "acquisitionDate": "2021-07-26T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 366,
+                    "type": "equipment",
+                    "name": "Resource 366",
+                    "dailyCost": 457.22,
+                    "status": "in use",
+                    "supplier": "Supplier C",
+                    "quantity": 1,
+                    "acquisitionDate": "2022-12-25T00:00:00Z",
+                    "tasks": null
+                },
+                {
+                    "id": 377,
+                    "type": "labor",
+                    "name": "Resource 377",
+                    "dailyCost": 177.14,
+                    "status": "maintenance",
+                    "supplier": "Supplier C",
+                    "quantity": 87,
+                    "acquisitionDate": "2021-05-26T00:00:00Z",
+                    "tasks": null
+                }
+            ]
+        }
+    ]
+}

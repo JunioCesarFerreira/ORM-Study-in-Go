@@ -64,15 +64,31 @@ func main() {
 
 	firstProject, err := base.Cast[entities.Project](data.Projects[0])
 
-	projectID, err := repository.InsertProject(dbg, firstProject)
+	projectId, err := repository.InsertProject(dbg, firstProject)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	project, err := repository.ReadProject(dbg, projectID)
+	project, err := repository.ReadProject(dbg, projectId)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	tests.SaveResult("result_main_execution.json", project)
+
+	testText := "modified for testing only"
+	firstProject.Tasks[0].Description = &testText
+	firstProject.Name = "new name test"
+
+	err = repository.UpdateProject(dbg, &firstProject)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	project, err = repository.ReadProject(dbg, projectId)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	tests.SaveResult("result_main_execution_updated.json", project)
 }

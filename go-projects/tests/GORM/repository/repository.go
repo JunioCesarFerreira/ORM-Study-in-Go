@@ -35,7 +35,24 @@ func ReadProject(db *gorm.DB, projectID int) (*entities.Project, error) {
 
 // UpdateProject updates the details of a project by ID.
 func UpdateProject(db *gorm.DB, updatedProject *entities.Project) error {
-	return db.Model(&entities.Project{}).Where("id = ?", updatedProject.ID).Updates(updatedProject).Error
+	// Start a transaction
+	err := db.Transaction(func(tx *gorm.DB) error {
+		// Update the main project fields
+		if err := tx.Model(&entities.Project{}).Where("id = ?", updatedProject.ID).Updates(updatedProject).Error; err != nil {
+			return err
+		}
+
+		// Update tasks associated with the project
+		for _, task := range updatedProject.Tasks {
+			task.ProjectID = updatedProject.ID // Ensure ProjectID is set
+			if err := tx.Save(&task).Error; err != nil {
+				return err
+			}
+		}
+		return nil
+	})
+
+	return err
 }
 
 // DeleteProject deletes a project by ID.
