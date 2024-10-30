@@ -64,6 +64,12 @@ func UpdateProject(db *sql.DB, updatedProject *entities.Project) error {
 		panic(err)
 	}
 	err = repo.Update(updatedProject)
+	for _, task := range updatedProject.Tasks {
+		err = repo.Update(&task)
+		if err != nil {
+			return err
+		}
+	}
 	return err
 }
 
