@@ -1,12 +1,44 @@
 {
     "id": 1,
-    "name": "Project 1",
+    "name": "new name test",
     "manager": "Manager B",
     "startDate": "2022-08-05T00:00:00Z",
     "endDate": "2024-08-15T00:00:00Z",
     "budget": 219685.41,
     "description": "Description for Project 1",
     "tasks": [
+        {
+            "id": 1,
+            "name": "Task 1",
+            "responsible": "Bob",
+            "deadline": "2025-12-04T00:00:00Z",
+            "status": "in progress",
+            "priority": "medium",
+            "estimatedTime": "7 days",
+            "description": "modified for testing only",
+            "resources": [
+                {
+                    "id": 90,
+                    "type": "equipment",
+                    "name": "Resource 90",
+                    "dailyCost": 87.34,
+                    "status": "maintenance",
+                    "supplier": null,
+                    "quantity": 82,
+                    "acquisitionDate": "2020-12-19T00:00:00Z"
+                },
+                {
+                    "id": 457,
+                    "type": "labor",
+                    "name": "Resource 457",
+                    "dailyCost": 390,
+                    "status": "available",
+                    "supplier": "Supplier C",
+                    "quantity": 77,
+                    "acquisitionDate": "2019-02-20T00:00:00Z"
+                }
+            ]
+        },
         {
             "id": 2,
             "name": "Task 2",
@@ -3342,38 +3374,6 @@
                     "supplier": "Supplier C",
                     "quantity": 87,
                     "acquisitionDate": "2021-05-26T00:00:00Z"
-                }
-            ]
-        },
-        {
-            "id": 1,
-            "name": "Task 1",
-            "responsible": "Bob",
-            "deadline": "2025-12-04T00:00:00Z",
-            "status": "in progress",
-            "priority": "medium",
-            "estimatedTime": "7 days",
-            "description": "Description for Task 1",
-            "resources": [
-                {
-                    "id": 90,
-                    "type": "equipment",
-                    "name": "Resource 90",
-                    "dailyCost": 87.34,
-                    "status": "maintenance",
-                    "supplier": null,
-                    "quantity": 82,
-                    "acquisitionDate": "2020-12-19T00:00:00Z"
-                },
-                {
-                    "id": 457,
-                    "type": "labor",
-                    "name": "Resource 457",
-                    "dailyCost": 390,
-                    "status": "available",
-                    "supplier": "Supplier C",
-                    "quantity": 77,
-                    "acquisitionDate": "2019-02-20T00:00:00Z"
                 }
             ]
         }

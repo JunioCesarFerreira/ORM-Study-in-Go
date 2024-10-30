@@ -5,6 +5,7 @@ import (
 	"log"
 	"reflect"
 	"runtime"
+	"strconv"
 	"strings"
 )
 
@@ -21,7 +22,7 @@ func callerFunctionName() (string, int) {
 
 func formatQuery(query string, args ...interface{}) string {
 	for i, arg := range args {
-		placeholder := fmt.Sprintf("$%d", i+1)
+		placeholder := "$" + strconv.Itoa(i+1)
 		argStr := formatArg(arg)
 		query = strings.Replace(query, placeholder, argStr, 1)
 	}
