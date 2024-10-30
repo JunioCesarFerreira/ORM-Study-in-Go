@@ -70,26 +70,26 @@ Usando o programa mencionado, várias rodadas de teste foram executadas e os res
 
 |    | Metodologia   | Operação        | Tempo por Op (ns) | Bytes por Op | Alocações por Op |
 |----|---------------|-----------------|-------------------|--------------|------------------|
-| 0  | DAONotation   | InsertResources | 1,095,199,700    | 1,342,200    | 36,377          |
-| 1  | DAONotation   | InsertProject   | 6,619,269,900    | 3,434,856    | 84,948          |
-| 2  | DAONotation   | ReadProject     | 736,151,200      | 6,382,984    | 109,964         |
-| 3  | DAONotation   | UpdateProject   | 988,277,400      | 1,092,796    | 31,370          |
-| 4  | DAONotation   | DeleteProject   | 11,452,412       | 4,342        | 103             |
-| 5  | DirectStruct  | InsertResources | 1,183,314,100    | 698,448      | 17,853          |
-| 6  | DirectStruct  | InsertProject   | 7,216,280,000    | 2,336,688    | 58,054          |
-| 7  | DirectStruct  | ReadProject     | 91,569,631       | 6,757,562    | 220,025         |
-| 8  | DirectStruct  | UpdateProject   | 1,000,177,050    | 503,960      | 11,732          |
-| 9  | DirectStruct  | DeleteProject   | 11,524,834       | 3,705        | 83              |
-| 10 | GORM          | InsertResources | 2,284,504,400    | 4,468,928    | 64,764          |
-| 11 | GORM          | InsertProject   | 411,073,933      | 13,142,098   | 151,953         |
-| 12 | GORM          | ReadProject     | 189,112,433      | 8,420,336    | 148,320         |
-| 13 | GORM          | UpdateProject   | 42,444,254       | 99,141       | 1,235           |
-| 14 | GORM          | DeleteProject   | 31,744,019       | 62,123       | 724             |
-| 15 | SQLRepository | InsertResources | 1,678,694,100    | 1,384,672    | 25,985          |
-| 16 | SQLRepository | InsertProject   | 12,395,136,800   | 3,521,720    | 81,748          |
-| 17 | SQLRepository | ReadProject     | 196,602,150      | 9,319,502    | 262,171         |
-| 18 | SQLRepository | UpdateProject   | 33,497,850       | 29,992       | 627             |
-| 19 | SQLRepository | DeleteProject   | 21,979,775       | 6,534        | 118             |
+| 0  |  DAONotation  | InsertResources | 1073625900        |   1314576    |     34856        |
+| 1  |  DAONotation  |  InsertProject  | 6719817800        |   3262400    |     74390        |
+| 2  |  DAONotation  |   ReadProject   |  794974900        |   6483280    |    108420        |
+| 3  |  DAONotation  |  UpdateProject  |  983180150        |   1008856    |     26266        |
+| 4  |  DAONotation  |  DeleteProject  |  12100342         |     4169     |      93          |
+| 5  | DirectStruct  | InsertResources | 1076202100        |    698448    |     17853        |
+| 6  | DirectStruct  |  InsertProject  | 6577243000        |   2336944    |     58053        |
+| 7  | DirectStruct  |   ReadProject   |  85338967         |   5357045    |    154188        |
+| 8  | DirectStruct  |  UpdateProject  | 1025960100        |    639008    |     13537        |
+| 9  | DirectStruct  |  DeleteProject  |  11288529         |     3683     |      83          |
+| 10 |     GORM      | InsertResources | 1651784800        |   4442256    |     64648        |
+| 11 |     GORM      |  InsertProject  |  281165050        |   13091684   |    151771        |
+| 12 |     GORM      |   ReadProject   |  105327817        |   8162614    |    148095        |
+| 13 |     GORM      |  UpdateProject  | 1052029800        |   22624088   |    274181        |
+| 14 |     GORM      |  DeleteProject  |  16823088         |    59428     |      702         |
+| 15 | SQLRepository | InsertResources | 1123081500        |   1356936    |     24463        |
+| 16 | SQLRepository |  InsertProject  | 7228233700        |   3333744    |     70193        |
+| 17 | SQLRepository |   ReadProject   |  87054533         |   5258311    |    154177        |
+| 18 | SQLRepository |  UpdateProject  | 1127682700        |   1460976    |     27082        |
+| 19 | SQLRepository |  DeleteProject  |  12335654         |     5311     |      104         |
 
 A tabela apresenta o desempenho em nanosegundos por operação (ns/op), uso de memória em bytes por operação (B/op) e o número de alocações de memória por operação (allocs/op), oferecendo uma visão abrangente da eficiência de cada abordagem testada.
 

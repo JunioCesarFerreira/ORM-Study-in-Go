@@ -1,18 +1,18 @@
 
 
 ==== Benchmark Results for tests/DAONotation ====
-Timestamp: 2024-10-27T21:35:52-03:00
+Timestamp: 2024-10-30T15:11:44-03:00
 goos: windows
 goarch: amd64
 pkg: m/tests/DAONotation
 cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
-BenchmarkInsertResources-8   	       1	1095199700 ns/op	 1342200 B/op	   36377 allocs/op
-BenchmarkInsertProject-8     	       1	6619269900 ns/op	 3434856 B/op	   84948 allocs/op
-BenchmarkReadProject-8       	       2	 736151200 ns/op	 6382984 B/op	  109964 allocs/op
-BenchmarkUpdateProject-8     	       2	 988277400 ns/op	 1092796 B/op	   31370 allocs/op
-BenchmarkDeleteProject-8     	     104	  11452412 ns/op	    4342 B/op	     103 allocs/op
+BenchmarkInsertResources-8   	       1	1073625900 ns/op	 1314576 B/op	   34856 allocs/op
+BenchmarkInsertProject-8     	       1	6719817800 ns/op	 3262400 B/op	   74390 allocs/op
+BenchmarkReadProject-8       	       2	 794974900 ns/op	 6483280 B/op	  108420 allocs/op
+BenchmarkUpdateProject-8     	       2	 983180150 ns/op	 1008856 B/op	   26266 allocs/op
+BenchmarkDeleteProject-8     	     103	  12100342 ns/op	    4169 B/op	      93 allocs/op
 PASS
-ok  	m/tests/DAONotation	15.305s
+ok  	m/tests/DAONotation	15.678s
 ?   	m/tests/DAONotation/dao	[no test files]
 ?   	m/tests/DAONotation/entities	[no test files]
 ?   	m/tests/DAONotation/repository	[no test files]
@@ -20,54 +20,54 @@ ok  	m/tests/DAONotation	15.305s
 
 
 ==== Benchmark Results for tests/DirectStruct ====
-Timestamp: 2024-10-27T21:36:09-03:00
+Timestamp: 2024-10-30T15:11:59-03:00
 goos: windows
 goarch: amd64
 pkg: m/tests/DirectStruct
 cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
-BenchmarkInsertResources-8   	       1	1183314100 ns/op	  698448 B/op	   17853 allocs/op
-BenchmarkInsertProject-8     	       1	7216280000 ns/op	 2336688 B/op	   58054 allocs/op
-BenchmarkReadProject-8       	      13	  91569631 ns/op	 6757562 B/op	  220025 allocs/op
-BenchmarkUpdateProject-8     	       2	1000177050 ns/op	  503960 B/op	   11732 allocs/op
-BenchmarkDeleteProject-8     	     100	  11524834 ns/op	    3705 B/op	      83 allocs/op
+BenchmarkInsertResources-8   	       1	1076202100 ns/op	  698448 B/op	   17853 allocs/op
+BenchmarkInsertProject-8     	       1	6577243000 ns/op	 2336944 B/op	   58053 allocs/op
+BenchmarkReadProject-8       	      12	  85338967 ns/op	 5357045 B/op	  154188 allocs/op
+BenchmarkUpdateProject-8     	       1	1025960100 ns/op	  639008 B/op	   13537 allocs/op
+BenchmarkDeleteProject-8     	     103	  11288529 ns/op	    3683 B/op	      83 allocs/op
 PASS
-ok  	m/tests/DirectStruct	16.018s
+ok  	m/tests/DirectStruct	13.153s
 ?   	m/tests/DirectStruct/entities	[no test files]
 ?   	m/tests/DirectStruct/repository	[no test files]
 
 
 
 ==== Benchmark Results for tests/GORM ====
-Timestamp: 2024-10-27T21:36:25-03:00
+Timestamp: 2024-10-30T15:12:13-03:00
 goos: windows
 goarch: amd64
 pkg: m/tests/GORM
 cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
-BenchmarkInsertResources-8   	       1	2284504400 ns/op	 4468928 B/op	   64764 allocs/op
-BenchmarkInsertProject-8     	       3	 411073933 ns/op	13142098 B/op	  151953 allocs/op
-BenchmarkReadProject-8       	       6	 189112433 ns/op	 8420336 B/op	  148320 allocs/op
-BenchmarkUpdateProject-8     	      24	  42444254 ns/op	   99141 B/op	    1235 allocs/op
-BenchmarkDeleteProject-8     	      37	  31744019 ns/op	   62123 B/op	     724 allocs/op
+BenchmarkInsertResources-8   	       1	1651784800 ns/op	 4442256 B/op	   64648 allocs/op
+BenchmarkInsertProject-8     	       4	 281165050 ns/op	13091684 B/op	  151771 allocs/op
+BenchmarkReadProject-8       	      12	 105327817 ns/op	 8162614 B/op	  148095 allocs/op
+BenchmarkUpdateProject-8     	       1	1052029800 ns/op	22624088 B/op	  274181 allocs/op
+BenchmarkDeleteProject-8     	      64	  16823088 ns/op	   59428 B/op	     702 allocs/op
 PASS
-ok  	m/tests/GORM	12.184s
+ok  	m/tests/GORM	10.931s
 ?   	m/tests/GORM/entities	[no test files]
 ?   	m/tests/GORM/repository	[no test files]
 
 
 
 ==== Benchmark Results for tests/SQLRepository ====
-Timestamp: 2024-10-27T21:36:49-03:00
+Timestamp: 2024-10-30T15:12:28-03:00
 goos: windows
 goarch: amd64
 pkg: m/tests/SQLRepository
 cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
-BenchmarkInsertResources-8   	       1	1678694100 ns/op	 1384672 B/op	   25985 allocs/op
-BenchmarkInsertProject-8     	       1	12395136800 ns/op	 3521720 B/op	   81748 allocs/op
-BenchmarkReadProject-8       	       6	 196602150 ns/op	 9319502 B/op	  262171 allocs/op
-BenchmarkUpdateProject-8     	      36	  33497850 ns/op	   29992 B/op	     627 allocs/op
-BenchmarkDeleteProject-8     	      52	  21979775 ns/op	    6534 B/op	     118 allocs/op
+BenchmarkInsertResources-8   	       1	1123081500 ns/op	 1356936 B/op	   24463 allocs/op
+BenchmarkInsertProject-8     	       1	7228233700 ns/op	 3333744 B/op	   70193 allocs/op
+BenchmarkReadProject-8       	      12	  87054533 ns/op	 5258311 B/op	  154177 allocs/op
+BenchmarkUpdateProject-8     	       1	1127682700 ns/op	 1460976 B/op	   27082 allocs/op
+BenchmarkDeleteProject-8     	     100	  12335654 ns/op	    5311 B/op	     104 allocs/op
 PASS
-ok  	m/tests/SQLRepository	21.683s
+ok  	m/tests/SQLRepository	13.095s
 ?   	m/tests/SQLRepository/columnFieldMap	[no test files]
 ?   	m/tests/SQLRepository/entities	[no test files]
 ?   	m/tests/SQLRepository/repository	[no test files]

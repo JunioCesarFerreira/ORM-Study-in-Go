@@ -2,10 +2,9 @@ package repository
 
 import (
 	"database/sql"
-	base "m/tests/Base"
-	directStruct "m/tests/DirectStruct/repository"
 	columnfieldmap "m/tests/SQLRepository/columnFieldMap"
 	"m/tests/SQLRepository/entities"
+	"time"
 )
 
 // InsertResource inserts a new resource into the RESOURCES table.
@@ -49,12 +48,113 @@ func InsertProject(db *sql.DB, project entities.Project) (int, error) {
 
 // ReadProject retrieves a project by ID, including its tasks and resources associated with each task.
 func ReadProject(db *sql.DB, projectID int) (*entities.Project, error) {
-	tmp, err := directStruct.ReadProject(db, projectID)
+	query := `
+	SELECT 
+		p.NAME, 
+		p.MANAGER, 
+		p.START_DATE, 
+		p.END_DATE, 
+		p.BUDGET, 
+		p.DESCRIPTION, 
+		t.ID, 
+		t.NAME, 
+		t.RESPONSIBLE, 
+		t.DEADLINE, 
+		t.STATUS, 
+		t.PRIORITY, 
+		t.ESTIMATED_TIME, 
+		t.DESCRIPTION,
+		r.ID, 
+		r.TYPE, 
+		r.NAME, 
+		r.DAILY_COST, 
+		r.STATUS, 
+		r.SUPPLIER, 
+		r.QUANTITY, 
+		r.ACQUISITION_DATE
+	FROM PROJECTS p
+		LEFT JOIN TASKS t ON p.ID = t.PROJECT_ID
+		LEFT JOIN TASK_RESOURCE tr ON t.ID = tr.TASK_ID
+		LEFT JOIN RESOURCES r ON r.ID = tr.RESOURCE_ID
+	WHERE p.ID = $1
+	`
+
+	rows, err := db.Query(query, projectID)
 	if err != nil {
 		return nil, err
 	}
-	ret, err := base.Cast[entities.Project](tmp)
-	return &ret, err
+	defer rows.Close()
+
+	project := &entities.Project{ID: projectID}
+	taskMap := make(map[int]*entities.Task)
+
+	var tID, rID sql.NullInt32
+	var pName, pManager, tName, tResponsible, tStatus, tPriority, rType, rName, rStatus, rSupplier sql.NullString
+	var pStartDate, tDeadline time.Time
+	var pEndDate, rAcquisitionDate sql.NullTime
+	var pBudget, rDailyCost sql.NullFloat64
+	var tEstimatedTime, tDescription sql.NullString
+	var rQuantity sql.NullInt32
+	var pDescription sql.NullString
+
+	for rows.Next() {
+		err := rows.Scan(
+			&pName, &pManager, &pStartDate, &pEndDate, &pBudget, &pDescription,
+			&tID, &tName, &tResponsible, &tDeadline, &tStatus, &tPriority, &tEstimatedTime, &tDescription,
+			&rID, &rType, &rName, &rDailyCost, &rStatus, &rSupplier, &rQuantity, &rAcquisitionDate,
+		)
+		if err != nil {
+			return nil, err
+		}
+
+		project.Name = pName.String
+		project.Manager = pManager.String
+		project.StartDate = pStartDate
+		project.EndDate = parseTimePtr(pEndDate)
+		project.Budget = parseFloatPtr(pBudget)
+		project.Description = parseStringPtr(pDescription)
+
+		if tID.Valid {
+			task, exists := taskMap[int(tID.Int32)]
+			if !exists {
+				task = &entities.Task{
+					ID:            int(tID.Int32),
+					Name:          tName.String,
+					Responsible:   parseStringPtr(tResponsible),
+					Deadline:      tDeadline,
+					Status:        tStatus.String,
+					Priority:      parseStringPtr(tPriority),
+					EstimatedTime: parseStringPtr(tEstimatedTime),
+					Description:   parseStringPtr(tDescription),
+				}
+				taskMap[int(tID.Int32)] = task
+			}
+
+			if rID.Valid {
+				resource := entities.Resource{
+					ID:              int(rID.Int32),
+					Type:            rType.String,
+					Name:            rName.String,
+					DailyCost:       parseFloatPtr(rDailyCost),
+					Status:          rStatus.String,
+					Supplier:        parseStringPtr(rSupplier),
+					Quantity:        parseIntPtr(rQuantity),
+					AcquisitionDate: parseTimePtr(rAcquisitionDate),
+				}
+				task.Resources = append(task.Resources, resource)
+			}
+		}
+	}
+
+	for _, task := range taskMap {
+		project.Tasks = append(project.Tasks, *task)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return project, nil
 }
 
 // UpdateProject updates the details of a project by ID.
@@ -81,4 +181,33 @@ func DeleteProject(db *sql.DB, projectID int) error {
 		panic(err)
 	}
 	return repo.Delete(projectID, &project)
+}
+
+func parseStringPtr(input sql.NullString) *string {
+	if input.Valid {
+		return &input.String
+	}
+	return nil
+}
+
+func parseIntPtr(input sql.NullInt32) *int {
+	if input.Valid {
+		value := int(input.Int32)
+		return &value
+	}
+	return nil
+}
+
+func parseTimePtr(input sql.NullTime) *time.Time {
+	if input.Valid {
+		return &input.Time
+	}
+	return nil
+}
+
+func parseFloatPtr(input sql.NullFloat64) *float64 {
+	if input.Valid {
+		return &input.Float64
+	}
+	return nil
 }

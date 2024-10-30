@@ -107,16 +107,16 @@ func ReadProject(db *sql.DB, projectID int) (*entities.Project, error) {
 	project := &entities.Project{ID: projectID}
 	taskMap := make(map[int]*entities.Task)
 
-	for rows.Next() {
-		var tID, rID sql.NullInt32
-		var pName, pManager, tName, tResponsible, tStatus, tPriority, rType, rName, rStatus, rSupplier sql.NullString
-		var pStartDate, tDeadline time.Time
-		var pEndDate, rAcquisitionDate sql.NullTime
-		var pBudget, rDailyCost sql.NullFloat64
-		var tEstimatedTime, tDescription sql.NullString
-		var rQuantity sql.NullInt32
-		var pDescription sql.NullString
+	var tID, rID sql.NullInt32
+	var pName, pManager, tName, tResponsible, tStatus, tPriority, rType, rName, rStatus, rSupplier sql.NullString
+	var pStartDate, tDeadline time.Time
+	var pEndDate, rAcquisitionDate sql.NullTime
+	var pBudget, rDailyCost sql.NullFloat64
+	var tEstimatedTime, tDescription sql.NullString
+	var rQuantity sql.NullInt32
+	var pDescription sql.NullString
 
+	for rows.Next() {
 		err := rows.Scan(
 			&pName, &pManager, &pStartDate, &pEndDate, &pBudget, &pDescription,
 			&tID, &tName, &tResponsible, &tDeadline, &tStatus, &tPriority, &tEstimatedTime, &tDescription,
