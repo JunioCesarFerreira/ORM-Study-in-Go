@@ -68,4 +68,20 @@ func main() {
 	}
 
 	tests.SaveResult("result_main_execution.json", project)
+
+	testText := "modified for testing only"
+	firstProject.Tasks[0].Description = &testText
+	firstProject.Name = "new name test"
+
+	err = repository.UpdateProject(db, &firstProject)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	project, err = repository.ReadProject(db, projectId)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	tests.SaveResult("result_main_execution_updated.json", project)
 }

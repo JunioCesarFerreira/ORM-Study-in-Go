@@ -193,10 +193,16 @@ func UpdateProject(db *sql.DB, project *entities.Project) error {
 	for _, task := range project.Tasks {
 		taskQuery := `
 			UPDATE TASKS
-			SET NAME = $1, RESPONSIBLE = $2, DEADLINE = $3, STATUS = $4, PRIORITY = $5, ESTIMATED_TIME = $6
-			WHERE ID = $7 AND PROJECT_ID = $8
+				SET NAME = $1, 
+				RESPONSIBLE = $2, 
+				DEADLINE = $3, 
+				STATUS = $4, 
+				PRIORITY = $5, 
+				ESTIMATED_TIME = $6,
+				DESCRIPTION = $7
+			WHERE ID = $8 AND PROJECT_ID = $9
 		`
-		_, err := db.Exec(taskQuery, task.Name, task.Responsible, task.Deadline, task.Status, task.Priority, task.EstimatedTime, task.ID, project.ID)
+		_, err := db.Exec(taskQuery, task.Name, task.Responsible, task.Deadline, task.Status, task.Priority, task.EstimatedTime, task.Description, task.ID, project.ID)
 		if err != nil {
 			return err
 		}
