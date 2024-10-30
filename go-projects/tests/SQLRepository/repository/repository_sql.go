@@ -2,9 +2,9 @@ package repository
 
 import (
 	"database/sql"
-	"fmt"
 	columnfieldmap "m/tests/SQLRepository/columnFieldMap"
 	"reflect"
+	"strconv"
 	"strings"
 )
 
@@ -28,7 +28,7 @@ func NewSQLRepository(db *sql.DB) (*SQLRepository, error) {
 
 func (repo *SQLRepository) Get(id int, entity Entity) error {
 	fields := strings.Join(entity.ColumnsNames(), ", ")
-	query := fmt.Sprintf("SELECT %s FROM %s WHERE id = $1", fields, entity.TableName())
+	query := "SELECT " + fields + " FROM " + entity.TableName() + " WHERE id = $1"
 	row := repo.db.QueryRow(query, id)
 	err := row.Scan(entity.Fields()...)
 	if err != nil {
@@ -41,8 +41,7 @@ func (repo *SQLRepository) Add(entity Entity) (int, error) {
 	cols, values := repo.prepareFieldsAndValuesForAdd(entity)
 	placeholders := repo.generatePlaceholders(len(values))
 
-	query := "INSERT INTO %s (%s, TENANT_ID) VALUES (%s) RETURNING IDENTIFIER"
-	query = fmt.Sprintf(query, entity.TableName(), cols, placeholders)
+	query := "INSERT INTO " + entity.TableName() + " (" + cols + ") VALUES (" + placeholders + ") RETURNING IDENTIFIER"
 
 	id := -1
 	err := repo.db.QueryRow(query, values...).Scan(&id)
@@ -53,8 +52,7 @@ func (repo *SQLRepository) Insert(entity Entity) error {
 	cols, values := repo.prepareFieldsAndValuesForInsert(entity)
 	placeholders := repo.generatePlaceholders(len(values))
 
-	query := "INSERT INTO %s (%s) VALUES (%s)"
-	query = fmt.Sprintf(query, entity.TableName(), cols, placeholders)
+	query := "INSERT INTO " + entity.TableName() + " (" + cols + ") VALUES (" + placeholders + ")"
 
 	_, err := repo.db.Exec(query, values...)
 	return err
@@ -70,8 +68,7 @@ func (repo *SQLRepository) InsertWithFK(entity Entity, fks []columnfieldmap.Colu
 
 	placeholders := repo.generatePlaceholders(len(values))
 
-	query := "INSERT INTO %s (%s) VALUES (%s)"
-	query = fmt.Sprintf(query, entity.TableName(), cols, placeholders)
+	query := "INSERT INTO " + entity.TableName() + " (" + cols + ") VALUES (" + placeholders + ")"
 
 	_, err := repo.db.Exec(query, values...)
 	return err
@@ -81,22 +78,20 @@ func (repo *SQLRepository) Update(entity Entity) error {
 	fields, values := repo.prepareFieldsAndValuesForUpdate(entity)
 	conditional, condValues := repo.buildConditional(entity, len(values)+1)
 
-	query := "UPDATE %s SET %s WHERE %s"
-	query = fmt.Sprintf(query, entity.TableName(), fields, conditional)
+	query := "UPDATE " + entity.TableName() + " SET " + fields + " WHERE " + conditional
 
 	_, err := repo.db.Exec(query, append(values, condValues...)...)
 	return err
 }
 
 func (repo *SQLRepository) Delete(id int, entity Entity) error {
-	query := fmt.Sprintf("DELETE FROM %s WHERE id = $1", entity.TableName())
+	query := "DELETE FROM " + entity.TableName() + " WHERE id = $1"
 	_, err := repo.db.Exec(query, id)
 	return err
 }
 
 func (repo *SQLRepository) Links(links Links) error {
-	del := "DELETE FROM %s WHERE %s = $1"
-	del = fmt.Sprintf(del, links.TableName, links.MasterColName)
+	del := "DELETE FROM " + links.TableName + " WHERE " + links.MasterColName + " = $1"
 
 	_, err := repo.db.Exec(del, links.MasterId)
 	if err != nil {
@@ -104,8 +99,7 @@ func (repo *SQLRepository) Links(links Links) error {
 	}
 
 	for _, link := range links.LinksIds {
-		insert := "INSERT INTO %s (%s, %s) VALUES ($1, $2)"
-		insert = fmt.Sprintf(insert, links.TableName, links.MasterColName, links.LinkColName)
+		insert := "INSERT INTO " + links.TableName + " (" + links.MasterColName + ", " + links.LinkColName + ") VALUES ($1, $2)"
 
 		_, err := repo.db.Exec(insert, links.MasterId, link)
 		if err != nil {
@@ -158,7 +152,7 @@ func (repo *SQLRepository) prepareFieldsAndValuesForUpdate(entity Entity) (strin
 		field := columns[i]
 		if !repo.sliceContainsFold(pkCols, columns[i]) {
 			count++
-			updatePairs = append(updatePairs, fmt.Sprintf("%s = $%d", field, count))
+			updatePairs = append(updatePairs, field+" = $"+strconv.Itoa(count))
 			values = append(values, repo.recValue(fields[i]))
 		}
 	}
@@ -168,7 +162,7 @@ func (repo *SQLRepository) prepareFieldsAndValuesForUpdate(entity Entity) (strin
 func (repo *SQLRepository) generatePlaceholders(count int) string {
 	placeholders := make([]string, count)
 	for i := range placeholders {
-		placeholders[i] = fmt.Sprintf("$%d", i+1)
+		placeholders[i] = "$" + strconv.Itoa(i+1)
 	}
 	return strings.Join(placeholders, ", ")
 }
@@ -200,7 +194,7 @@ func (repo *SQLRepository) buildConditional(entity Entity, firstPlaceholder int)
 	var comps []string
 	var values []interface{}
 	for i := 0; i < len(cols); i++ {
-		comp := fmt.Sprintf("%s = $%d", cols[i], i+firstPlaceholder)
+		comp := cols[i] + " = $" + strconv.Itoa(i+firstPlaceholder)
 		comps = append(comps, comp)
 		values = append(values, repo.recValue(fields[i]))
 	}
